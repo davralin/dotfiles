@@ -263,7 +263,7 @@ exec --no-startup-id /usr/bin/compton -f
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/variety
 exec --no-startup-id /usr/bin/nextcloud
-exec --no-startup-id /usr/bin/redshift -v -l 59.91273:10.74609
+exec --no-startup-id /usr/bin/redshift
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id /usr/bin/guake
 exec --no-startup-id /usr/bin/thunar --daemon
