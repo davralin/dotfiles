@@ -268,7 +268,6 @@ bindsym $mod+Shift+x exec ~/.config/i3/scripts/i3lockblur.sh
 bindsym $mod+Shift+s exec ~/.screenlayout/undocked.sh && ~/.config/i3/scripts/i3lockblur.sh && /bin/systemctl suspend
 bindsym $mod+Shift+w exec /usr/bin/firefox
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 bindsym $mod+Shift+f exec /usr/bin/thunar
 
 ## Assignments
