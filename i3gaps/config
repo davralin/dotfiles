@@ -112,8 +112,8 @@ set $ws5 "5: "
 set $ws6 "6: "
 set $ws7 "7: "
 set $ws8 "8  "
-set $ws9 "9 "
-set $ws10 "10 "
+set $ws9 "9: "
+set $ws10 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -146,10 +146,10 @@ workspace $ws3 output primary
 workspace $ws4 output primary
 workspace $ws5 output primary
 workspace $ws6 output primary
-workspace $ws7 output left primary
+workspace $ws7 output eDP-1 left primary
 workspace $ws8 output primary
-workspace $ws9 output left primary
-workspace $ws10 output right primary
+workspace $ws9 output eDP-1 left primary
+workspace $ws10 output DP-1-1 right primary
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
