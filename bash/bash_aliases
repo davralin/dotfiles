@@ -10,3 +10,5 @@ function calc() {
 function btconnect() {
   /usr/bin/bluetoothctl connect $1
 }
+alias undocommit='/usr/bin/git reset --soft HEAD~1'
+alias gc='/usr/bin/git commit -m "$1" $2'
