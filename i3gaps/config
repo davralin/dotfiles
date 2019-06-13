@@ -238,6 +238,9 @@ bar {
 	}
 }
 
+## Floating rules
+for_window [class="Yad"] floating enable
+
 ## Bindings
 bindsym $mod+m move workspace to output left
 bindsym $mod+n move workspace to output right
