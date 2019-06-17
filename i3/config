@@ -15,7 +15,6 @@ set $rofi /usr/bin/rofi
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:hack 10
-#font pango:FontAwesome 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -155,8 +154,6 @@ workspace $ws10 output DP-1-1 right primary
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -184,17 +181,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-set $exit "[p] poweroff, [r] reboot, [s] suspend"
-mode "exit" {
-	bindsym p exec /bin/systemctl poweroff
-	bindsym r exec /bin/systemctl reboot
-	bindsym s exec ~/.screenlayout/undocked.sh && ~/.config/i3/scripts/i3lockblur.sh && /bin/systemctl suspend
-
-	bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym mod+Shift+e mode $exit
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -285,6 +271,7 @@ exec --no-startup-id /usr/bin/nextcloud
 exec --no-startup-id /usr/bin/redshift
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id /usr/bin/guake
+exec --no-startup-id /usr/bin/unclutter -idle 2
 exec --no-startup-id /usr/bin/thunar --daemon
 exec --no-startup-id /usr/bin/remmina -i
 exec --no-startup-id /usr/bin/xautolock -detectsleep -time 10 -locker "~/.config/i3/scripts/i3lockblur.sh" -notify 30 -notifier "/usr/bin/notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
