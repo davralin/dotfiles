@@ -19,7 +19,7 @@
 # Get custom IN and OUT labels if provided by command line arguments
 while [[ $# -gt 1 ]]; do
     key="$1"
-    case "$key" in
+    case "$key" in 
         -i|--inlabel)
             INLABEL="$2"
             shift;;
@@ -30,8 +30,8 @@ while [[ $# -gt 1 ]]; do
     shift
 done
 
-[[ -z $INLABEL ]] && INLABEL="IN "
-[[ -z $OUTLABEL ]] && OUTLABEL="OUT "
+[[ -z "$INLABEL" ]] && INLABEL="IN "
+[[ -z "$OUTLABEL" ]] && OUTLABEL="OUT "
 
 # Use the provided interface, otherwise the device used for the default route.
 if [[ -z $INTERFACE ]] && [[ -n $BLOCK_INSTANCE ]]; then
@@ -40,9 +40,12 @@ elif [[ -z $INTERFACE ]]; then
   INTERFACE=$(ip route | awk '/^default/ { print $5 ; exit }')
 fi
 
+# Exit if there is no default route
+[[ -z "$INTERFACE" ]] && exit
+
 # Issue #36 compliant.
 if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || \
-    (! [ "$TREAT_UNKNOWN_AS_UP" = "1" ] &&
+    (! [ "$TREAT_UNKNOWN_AS_UP" = "1" ] && 
     ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ])
 then
     echo "$INTERFACE down"
@@ -67,6 +70,7 @@ if ! [[ -f "${path}" ]]; then
   echo "${time} ${rx} ${tx}" > "${path}"
   chmod 0666 "${path}"
 fi
+
 
 # read previous state and update data storage
 read old < "${path}"
@@ -103,7 +107,8 @@ echo -n " "
 echo -n "$OUTLABEL"
 tx_kib=$(( $tx_rate >> 10 ))
 if hash bc 2>/dev/null && [[ "$tx_rate" -gt 1048576 ]]; then
-  printf '%sM' "`echo "scale=1; $tx_kib / 1024" | bc`"
+  printf '%sM\n' "`echo "scale=1; $tx_kib / 1024" | bc`"
 else
-  echo -n "${tx_kib}K"
+  echo "${tx_kib}K"
 fi
+
