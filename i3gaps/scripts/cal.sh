@@ -2,7 +2,6 @@
 
 WIDTH=${WIDTH:-200}
 HEIGHT=${HEIGHT:-200}
-#DATEFMT=${DATEFMT:-"+%a %d.%m.%Y %H:%M:%S"}
 DATEFMT=${DATEFMT:-"+  W:%V %Y-%m-%d  %H:%M:%S"}
 SHORTFMT=${SHORTFMT:-"+%H:%M:%S"}
 
@@ -35,10 +34,8 @@ case "$BLOCK_BUTTON" in
 	    --undecorated --fixed \
 	    --close-on-unfocus --no-buttons \
 	    --show-weeks \
-	    --posx=1700 --posy=24 \
-#	    --posx=$posX --posy=$posY \
+	    --posx=$posX --posy=24 \
 	    > /dev/null"
 esac
 echo "$LABEL$(date "$DATEFMT")"
 echo "$LABEL$(date "$SHORTFMT")"
-
