@@ -194,7 +194,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 hide_edge_borders both
 bar {
-        status_command i3blocks -c ~/.config/i3/blocks/up.conf
+        status_command i3blocks -c ~/.config/i3blocks/up.conf
         binding_mode_indicator no
         workspace_buttons no
         tray_output none
@@ -211,7 +211,7 @@ bar {
 
 }
 bar {
-        status_command i3blocks -c ~/.config/i3/blocks/down.conf
+        status_command i3blocks -c ~/.config/i3blocks/down.conf
         tray_output primary
         position bottom
 	colors {

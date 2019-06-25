@@ -1,3 +1,3 @@
 # dotfiles
 
-git update-index --skip-worktree i3gaps/scripts/currency.sh
+git update-index --skip-worktree i3blocks/scripts/currency.sh
