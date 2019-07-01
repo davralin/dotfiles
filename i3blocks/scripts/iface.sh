@@ -34,6 +34,9 @@ fi
 if [[ "$BLOCK_BUTTON" -eq 1 ]]; then
   PUBLICIP=$(/usr/bin/curl https://icanhazip.com)
   /usr/bin/notify-send -u low "Public IP is: $PUBLICIP"
+  /bin/echo $PUBLICIP | /usr/bin/xclip -selection clipboard
+  PRIVATEIP="$(/bin/ip a | grep $(/bin/ip route | /usr/bin/awk '/^default/ { print $5 }') | /bin/grep inet | /usr/bin/awk '{ print $2 }' | /usr/bin/awk -F '/' '{ print $1 }')"
+  /usr/bin/notify-send -u low "Private IP is: $PRIVATEIP"
 fi
 
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'up' ]]; then
