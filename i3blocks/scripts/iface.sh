@@ -31,6 +31,10 @@ fi
 #[[ ! -d /sys/class/net/${IF} ]] && exit
 
 #------------------------------------------------------------------------
+if [[ "$BLOCK_BUTTON" -eq 1 ]]; then
+  PUBLICIP=$(/usr/bin/curl https://icanhazip.com)
+  /usr/bin/notify-send -u low "Public IP is: $PUBLICIP"
+fi
 
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'up' ]]; then
   echo ""
