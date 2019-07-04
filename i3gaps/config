@@ -268,7 +268,7 @@ bindsym $mod+Shift+e exec ~/.config/i3/scripts/shutdown_menu.sh
 #exec i3-msg 'workspace $ws9; exec $terminal --hide-toolbar --hide-menubar -x glances -t 10'
 
 ## Autoruns
-exec --no-startup-id /usr/bin/compton -f
+exec --no-startup-id /usr/bin/compton --config ~/.config/compton/compton.conf
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/variety
 exec --no-startup-id /usr/bin/nextcloud
