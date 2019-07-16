@@ -1,6 +1,8 @@
 #!/bin/bash
 if [[ "$BLOCK_BUTTON" -eq 1 ]]; then
   /usr/bin/sudo /usr/bin/brightnessctl set 1% > /dev/null
+elif [[ "$BLOCK_BUTTON" -eq 2 ]]; then
+  /usr/bin/sudo /usr/bin/brightnessctl set 40% > /dev/null
 elif [[ "$BLOCK_BUTTON" -eq 3 ]]; then
   /usr/bin/sudo /usr/bin/brightnessctl set 100% > /dev/null
 fi
