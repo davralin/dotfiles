@@ -104,6 +104,7 @@ do
     ;;
     "Discharging"|"Unknown")
         if (( percentages[$i] >= 0 && percentages[$i] < 10 )); then
+	    /usr/bin/notify-send -u critical "Low battery!"
             color="${dis_colors[0]}"
         elif (( percentages[$i] >= 10 && percentages[$i] < 20 )); then
             color="${dis_colors[1]}"
