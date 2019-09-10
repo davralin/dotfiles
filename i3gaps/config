@@ -43,6 +43,7 @@ bindsym $mod+Return exec $terminal --hide-toolbar --hide-menubar
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+Ctrl+q xkill
 
 # start dmenu (a program launcher)
 bindsym $mod+Shift+d exec $rofi -show run -modi run
