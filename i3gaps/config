@@ -33,15 +33,13 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 set $terminal            /usr/bin/xfce4-terminal --hide-toolbar --hide-menubar
+set $terminal2           /usr/bin/urxvt
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $terminal
-
-# move window to scratchpad
-bindsym $mod+i move scratchpad
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -266,11 +264,22 @@ exec --no-startup-id /usr/bin/remmina -i
 exec --no-startup-id /usr/bin/xautolock -detectsleep -time 10 -locker "~/.config/i3/scripts/i3lockblur.sh" -notify 30 -notifier "/usr/bin/notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
 exec --no-startup-id i3-msg workspace $ws1
 
+# move window to scratchpad
+bindsym $mod+i move scratchpad
+
 ## Music-scratchpad
 exec --no-startup-id /usr/bin/clementine
 for_window [class="Clementine"] floating enable;
 for_window [class="Clementine"] move scratchpad; [instance="music"] scratchpad show; move position 80px 50px; move scratchpad
 bindsym $mod+F1 [class="Clementine"] scratchpad show, resize set 1000 650
+
+## Terminal-scratchpad
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 1000 800
+for_window [instance="dropdown"] move position center
+for_window [instance="dropdown"] move scratchpad
+exec_always --no-startup-id $terminal2 -name dropdown
+bindsym $mod+F2 [instance="dropdown"] scratchpad show; move position center
 
 ### i3-gaps stuff ###
 
