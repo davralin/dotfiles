@@ -285,6 +285,9 @@ for_window [class="SpeedCrunch"] move scratchpad
 bindsym $mod+c [class="SpeedCrunch"] scratchpad show; move position mouse
 exec --no-startup-id /usr/bin/speedcrunch
 
+# Assignments
+assign [class="Steam"] $ws8
+
 ### i3-gaps stuff ###
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
