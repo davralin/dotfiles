@@ -1,0 +1,16 @@
+URxvt*background: Black
+URxvt*foreground: White
+
+! Disable the ugly scrollbar
+URxvt*scrollBar: false
+
+! Scroll in relation to buffer (with mouse scroll or Shift+ Page Up)
+URxvt*scrollWithBuffer: true
+
+! Scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! Set font to hack regular, with a size of 12
+URxvt.font: xft:Hack-Regular:size=12
+! /usr/share/fonts/truetype/hack/Hack-Regular.ttf: Hack:style=Regular
+
