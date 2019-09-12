@@ -245,10 +245,6 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym $mod+Shift+f exec /usr/bin/thunar
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/shutdown_menu.sh
 bindsym $mod+b exec ~/.config/i3/scripts/bluetoothctl.sh
-bindsym $mod+c exec /usr/bin/speedcrunch
-
-## Assignments
-#exec i3-msg 'workspace $ws9; exec $terminal --hide-toolbar --hide-menubar -x glances -t 10'
 
 ## Autoruns
 exec --no-startup-id /usr/bin/compton --config ~/.config/compton/compton.conf
@@ -267,19 +263,27 @@ exec --no-startup-id i3-msg workspace $ws1
 # move window to scratchpad
 bindsym $mod+i move scratchpad
 
-## Music-scratchpad
+# Music-scratchpad
 exec --no-startup-id /usr/bin/clementine
 for_window [class="Clementine"] floating enable;
 for_window [class="Clementine"] move scratchpad; [instance="music"] scratchpad show; move position 80px 50px; move scratchpad
 bindsym $mod+F1 [class="Clementine"] scratchpad show, resize set 1000 650
 
-## Terminal-scratchpad
+# Terminal-scratchpad
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] resize set 1000 800
 for_window [instance="dropdown"] move position center
 for_window [instance="dropdown"] move scratchpad
-exec_always --no-startup-id $terminal2 -name dropdown
+exec --no-startup-id $terminal2 -name dropdown
 bindsym $mod+F2 [instance="dropdown"] scratchpad show; move position center
+
+# Calculate-scratchpad
+for_window [class="SpeedCrunch"] floating enable
+for_window [class="SpeedCrunch"] resize set 400 200
+for_window [class="SpeedCrunch"] move position mouse
+for_window [class="SpeedCrunch"] move scratchpad
+bindsym $mod+c [class="SpeedCrunch"] scratchpad show; move position mouse
+exec --no-startup-id /usr/bin/speedcrunch
 
 ### i3-gaps stuff ###
 
