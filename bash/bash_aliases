@@ -1,9 +1,12 @@
+# Rebase and push
 function pp() {
   /usr/bin/git pull --rebase; /usr/bin/git push
 }
+# Git add all, then show diff changes
 function addiff() {
   /usr/bin/git add .; /usr/bin/git diff --staged
 }
+# Connect to bluetooth
 function btconnect() {
   /usr/bin/bluetoothctl connect $1
 }
