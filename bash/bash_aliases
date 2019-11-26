@@ -16,5 +16,5 @@ alias rpwd='/usr/bin/openssl rand -hex $1'
 alias cls='clear'
 alias q='exit'
 alias ..='cd ..'
+alias ...='cd ../..'
 alias cd..='cd ..'
-
