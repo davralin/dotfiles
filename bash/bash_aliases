@@ -18,8 +18,14 @@ function rreboot() {
 function wu() {
   ssh $1 'sudo DEBIAN_FRONTEND=noninteractive apt-get --dry-run dist-upgrade' | grep Inst | cut -f 2 -d' '
 }
+# Update&&Upgrade on local machine
+function aptu() {
+  /usr/bin/apt update && /usr/bin/apt upgrade
+}
 alias undocommit='/usr/bin/git reset --soft HEAD~1'
 alias rpwd='/usr/bin/openssl rand -hex $1'
+alias sshk='/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R $1'
+alias sshi='/usr/bin/ssh -o StrictHostKeyChecking=no $1'
 alias cls='clear'
 alias q='exit'
 alias ..='cd ..'
