@@ -4,9 +4,6 @@ function pp() {
 function addiff() {
   /usr/bin/git add .; /usr/bin/git diff --staged
 }
-function calc() {
-  /bin/echo $1 | /usr/bin/bc
-}
 function btconnect() {
   /usr/bin/bluetoothctl connect $1
 }
