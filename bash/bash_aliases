@@ -7,6 +7,10 @@ function addiff() {
 function btconnect() {
   /usr/bin/bluetoothctl connect $1
 }
+# Does a remote reboot of given ssh-name
+function rreboot() {
+  ssh -t $1 'sudo /sbin/reboot'
+}
 alias undocommit='/usr/bin/git reset --soft HEAD~1'
 alias gc='/usr/bin/git commit -m "$1" $2'
 alias rpwd='/usr/bin/openssl rand -hex $1'
