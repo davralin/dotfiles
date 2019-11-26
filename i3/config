@@ -278,6 +278,7 @@ for_window [instance="dropdown"] move position center
 for_window [instance="dropdown"] move scratchpad
 exec --no-startup-id $terminal2 -name dropdown
 bindsym $mod+F2 [instance="dropdown"] scratchpad show; move position center
+bindsym $mod+Shift+F2 exec --no-startup-id $terminal2 -name dropdown
 
 # Calculate-scratchpad
 for_window [class="SpeedCrunch"] floating enable
