@@ -15,7 +15,6 @@ function rreboot() {
   ssh -t $1 'sudo /sbin/reboot'
 }
 alias undocommit='/usr/bin/git reset --soft HEAD~1'
-alias gc='/usr/bin/git commit -m "$1" $2'
 alias rpwd='/usr/bin/openssl rand -hex $1'
 alias cls='clear'
 alias q='exit'
