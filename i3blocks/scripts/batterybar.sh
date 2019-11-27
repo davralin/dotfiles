@@ -34,6 +34,12 @@ do
     fi
 done
 
+if [[ $percentages == "0" ]]
+then
+   # We will assume that the device doesn't really have a battery, and then die silently.
+   exit 0
+fi
+
 squares="■"
 
 #There are 8 colors that reflect the current battery percentage when
