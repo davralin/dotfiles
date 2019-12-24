@@ -86,6 +86,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# More universal Paste
+bindsym --release Control+Shift+v exec --no-startup-id xdotool key --clearmodifiers Shift+Insert
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1 "
