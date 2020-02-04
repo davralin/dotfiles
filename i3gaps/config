@@ -268,6 +268,9 @@ exec --no-startup-id /usr/bin/autorandr --change
 # move window to scratchpad
 bindsym $mod+i move scratchpad
 
+# toggle sticky mode on window
+bindsym $mod+Shift+i sticky toggle
+
 # Music-scratchpad
 exec --no-startup-id /usr/bin/clementine
 for_window [class="Clementine"] floating enable;
