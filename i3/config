@@ -249,6 +249,7 @@ bindsym $mod+Shift+f exec /usr/bin/thunar
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/shutdown_menu.sh
 bindsym $mod+b exec ~/.config/i3/scripts/bluetoothctl.sh
 bindsym $mod+p exec /usr/bin/autorandr --change
+exec --no-startup-id /usr/bin/brightd -v -f -w 5
 
 ## Autoruns
 exec --no-startup-id /usr/bin/compton --config ~/.config/compton/compton.conf
