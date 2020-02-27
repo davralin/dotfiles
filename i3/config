@@ -249,7 +249,6 @@ bindsym $mod+Shift+f exec /usr/bin/thunar
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/shutdown_menu.sh
 bindsym $mod+b exec ~/.config/i3/scripts/bluetoothctl.sh
 bindsym $mod+p exec /usr/bin/autorandr --change
-exec --no-startup-id /usr/bin/brightd -v -f -w 5
 
 ## Autoruns
 exec --no-startup-id /usr/bin/compton --config ~/.config/compton/compton.conf
@@ -265,6 +264,7 @@ exec --no-startup-id /usr/bin/remmina -i
 exec --no-startup-id /usr/bin/xautolock -detectsleep -time 10 -locker "~/.config/i3/scripts/i3lockblur.sh" -notify 30 -notifier "/usr/bin/notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id /usr/bin/autorandr --change
+exec --no-startup-id /usr/bin/sudo /usr/bin/brightd -v -f -w 20
 
 # move window to scratchpad
 bindsym $mod+i move scratchpad
