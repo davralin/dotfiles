@@ -265,6 +265,7 @@ exec --no-startup-id /usr/bin/xautolock -detectsleep -time 10 -locker "~/.config
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id /usr/bin/autorandr --change
 exec --no-startup-id /usr/bin/sudo /usr/bin/brightd -v -f -w 20
+exec --no-startup-id /usr/bin/riot-desktop
 
 # move window to scratchpad
 bindsym $mod+i move scratchpad
