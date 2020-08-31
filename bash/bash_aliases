@@ -29,6 +29,15 @@ function decrypt() {
   /usr/bin/gpg --decrypt /tmp/decrypt
   /usr/bin/shred -z --remove /tmp/decrypt
 }
+# Sign a message
+function sign() {
+  /usr/bin/editor /tmp/sign
+  /usr/bin/gpg --clearsign /tmp/sign
+  /usr/bin/cat /tmp/sign.asc
+  /usr/bin/shred -z --remove /tmp/sign
+  /usr/bin/shred -z --remove /tmp/sign.asc
+
+}
 alias undocommit='/usr/bin/git reset --soft HEAD~1'
 alias rpwd='/usr/bin/openssl rand -hex $1'
 alias sshk='/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R $1'
