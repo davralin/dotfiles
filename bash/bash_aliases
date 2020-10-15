@@ -1,3 +1,6 @@
+####### Git-stuff
+# Undo last commit
+alias undocommit='/usr/bin/git reset --soft HEAD~1'
 # Rebase and push
 function pp() {
   /usr/bin/git pull --rebase; /usr/bin/git push
@@ -6,14 +9,8 @@ function pp() {
 function addiff() {
   /usr/bin/git add .; /usr/bin/git diff --staged
 }
-# Connect to bluetooth
-function btconnect() {
-  /usr/bin/bluetoothctl connect $1
-}
-# Does a remote reboot of given ssh-name
-function rreboot() {
-  ssh -t $1 'sudo /sbin/reboot'
-}
+
+####### apt-stuff
 # What-Upgrade? Lists what should be upgraded on a remote machine
 function wu() {
   ssh $1 'sudo DEBIAN_FRONTEND=noninteractive apt-get --dry-run dist-upgrade' | grep Inst | cut -f 2 -d' '
@@ -22,6 +19,10 @@ function wu() {
 function aptu() {
   /usr/bin/apt update && /usr/bin/apt upgrade
 }
+alias aptsh='/usr/bin/apt-cache show $1'
+alias aptsearch='/usr/bin/apt-cache search $1'
+
+####### gpg-stuff
 # Temporarily decrypt something, and then shred it
 function decrypt() {
   /usr/bin/clear
@@ -38,10 +39,25 @@ function sign() {
   /usr/bin/shred -z --remove /tmp/sign.asc
 
 }
-alias undocommit='/usr/bin/git reset --soft HEAD~1'
-alias rpwd='/usr/bin/openssl rand -hex $1'
+
+####### ssh-stuff
 alias sshk='/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R $1'
 alias sshi='/usr/bin/ssh -o StrictHostKeyChecking=no $1'
+
+# Connect to bluetooth
+function btconnect() {
+  /usr/bin/bluetoothctl connect $1
+}
+
+# Does a remote reboot of given ssh-name
+function rreboot() {
+  ssh -t $1 'sudo /sbin/reboot'
+}
+
+# Use for long-running tasks
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias rpwd='/usr/bin/openssl rand -hex $1'
 alias cls='clear'
 alias q='exit'
 alias ..='cd ..'
