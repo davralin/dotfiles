@@ -15,6 +15,11 @@ function addiff() {
 function wu() {
   ssh $1 'sudo DEBIAN_FRONTEND=noninteractive apt-get --dry-run dist-upgrade' | grep Inst | cut -f 2 -d' '
 }
+# Do-Upgrade! Installs upgrades on a remote machine
+function dou() {
+  ssh $1 'sudo DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade; sudo /usr/lib/nagios/plugins/check_restart_updated --verbose'
+}
+
 # Update&&Upgrade on local machine
 function aptu() {
   /usr/bin/apt update && /usr/bin/apt upgrade
