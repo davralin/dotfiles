@@ -49,6 +49,11 @@ function sign() {
 alias sshk='/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R $1'
 alias sshi='/usr/bin/ssh -o StrictHostKeyChecking=no $1'
 
+# Sudo-ssh, for when you need to do stuff remotely as root
+function sudossh() {
+  /usr/bin/ssh -t $1 sudo -i
+}
+
 # Connect to bluetooth
 function btconnect() {
   /usr/bin/bluetoothctl connect $1
