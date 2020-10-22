@@ -42,7 +42,6 @@ fi
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'up' ]]; then
   echo ""
   echo ""
-  echo \#00FF00
 elif [[ "$(cat /sys/class/net/$IF/operstate)" = 'unknown' ]]; then
   echo ""
   echo ""

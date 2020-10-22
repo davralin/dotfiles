@@ -6,7 +6,6 @@ do
   then
     echo ""
     echo ""
-    echo \#00FF00 # color
   else
     echo "$i"
     echo "$i"
