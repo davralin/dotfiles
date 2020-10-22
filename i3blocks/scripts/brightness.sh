@@ -6,4 +6,9 @@ elif [[ "$BLOCK_BUTTON" -eq 2 ]]; then
 elif [[ "$BLOCK_BUTTON" -eq 3 ]]; then
   /usr/bin/sudo /usr/bin/brightnessctl set 100% > /dev/null
 fi
-/usr/bin/brightnessctl | /bin/grep Current | /usr/bin/cut -d'(' -f2 | /usr/bin/cut -d')' -f1
+BRIGHTNESS=$(/usr/bin/brightnessctl | /bin/grep Current | /usr/bin/cut -d'(' -f2 | /usr/bin/cut -d')' -f1)
+
+if [ "$(/usr/bin/brightnessctl --list | grep backlight)" ]; then
+  echo $BRIGHTNESS
+  echo $BRIGHTNESS
+fi
