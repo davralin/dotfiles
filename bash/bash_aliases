@@ -17,7 +17,7 @@ function wu() {
 }
 # Do-Upgrade! Installs upgrades on a remote machine
 function dou() {
-  ssh $1 'sudo DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade; sudo /usr/lib/nagios/plugins/check_restart_updated --verbose'
+  ssh $1 'sudo DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade'
 }
 
 # Update&&Upgrade on local machine
