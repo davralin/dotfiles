@@ -44,6 +44,11 @@ function sign() {
   /usr/bin/shred -z --remove /tmp/sign.asc
 
 }
+# Configure ssh-agent via GPG-agent/YubiKey
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye > /dev/null
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 ####### ssh-stuff
 alias sshk='/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R $1'
@@ -64,6 +69,11 @@ function rreboot() {
   ssh -t $1 'sudo /sbin/reboot'
 }
 
+# cd's to a private project of some sort
+function priv() {
+  cd ~/priv/$1*
+}
+
 # Use for long-running tasks
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
@@ -73,3 +83,19 @@ alias q='exit'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias cd..='cd ..'
+
+if [[ "`locale -a`" == *"nb_NO.utf8"* ]]; then
+  export LC_CTYPE="nb_NO.utf8"
+  export LC_NUMERIC="nb_NO.utf8"
+  export LC_TIME="nb_NO.utf8"
+  export LC_COLLATE="nb_NO.utf8"
+  export LC_MONETARY="nb_NO.utf8"
+  # This is for help-messages and such, we want those in native language.
+  #export LC_MESSAGES="nb_NO.utf8"
+  export LC_PAPER="nb_NO.utf8"
+  export LC_NAME="nb_NO.utf8"
+  export LC_ADDRESS="nb_NO.utf8"
+  export LC_TELEPHONE="nb_NO.utf8"
+  export LC_MEASUREMENT="nb_NO.utf8"
+  export LC_IDENTIFICATION="nb_NO.utf8"
+fi
