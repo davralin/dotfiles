@@ -22,7 +22,7 @@ function dou() {
 
 # Update&&Upgrade on local machine
 function aptu() {
-  /usr/bin/apt update && /usr/bin/apt dist-upgrade --autoremove
+  /usr/bin/sudo /usr/bin/apt update && /usr/bin/sudo /usr/bin/apt dist-upgrade --autoremove
 }
 alias aptsh='/usr/bin/apt-cache show $1'
 alias aptsearch='/usr/bin/apt-cache search $1'
