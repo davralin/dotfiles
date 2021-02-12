@@ -74,6 +74,11 @@ function priv() {
   cd ~/priv/$1*
 }
 
+# My god docker is horrible.
+function fixdocker() {
+  timeout 60 kubectl drain $1 --ignore-daemonsets --delete-emptydir-data; rreboot $1; sleep 20; sssh $1 uptime; sleep 10; kubectl uncordon $1
+}
+
 # Use for long-running tasks
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
