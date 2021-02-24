@@ -10,6 +10,9 @@ function addiff() {
   /usr/bin/git add .; /usr/bin/git diff --staged
 }
 
+####### tmux
+alias ta='/usr/bin/tmux attach'
+
 ####### apt-stuff
 # What-Upgrade? Lists what should be upgraded on a remote machine
 function wu() {
