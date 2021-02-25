@@ -9,6 +9,10 @@ function pp() {
 function addiff() {
   /usr/bin/git add .; /usr/bin/git diff --staged
 }
+# Git stash and drop
+function gitdrop() {
+  /usr/bin/git stash; /usr/bin/git stash drop
+}
 
 ####### tmux
 alias ta='/usr/bin/tmux attach'
