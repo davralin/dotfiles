@@ -265,7 +265,7 @@ exec --no-startup-id /usr/bin/remmina -i
 exec --no-startup-id /usr/bin/xautolock -detectsleep -time 10 -locker "~/.config/i3/scripts/i3lockblur.sh" -notify 30 -notifier "/usr/bin/notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id /usr/bin/autorandr --change
-exec --no-startup-id /usr/bin/sudo /usr/bin/brightd -v -f -w 20
+exec --no-startup-id /usr/bin/sudo /usr/bin/brightd -v -f -w 60
 exec --no-startup-id /usr/bin/riot-desktop
 
 # move window to scratchpad
