@@ -49,8 +49,17 @@ function sign() {
   /usr/bin/cat /tmp/sign.asc
   /usr/bin/shred -z --remove /tmp/sign
   /usr/bin/shred -z --remove /tmp/sign.asc
-
 }
+
+# Kill running-gpg-agent
+function killgpg() {
+  /usr/bin/kill $(/usr/bin/ps aux | /usr/bin/grep /usr/bin/gpg-agent | /usr/bin/grep -v grep | /usr/bin/awk '{print $2}')
+  export GPG_TTY=$(tty)
+  /usr/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
+  unset SSH_AGENT_PID
+  export SSH_AUTH_SOCK=$(/usr/bin/gpgconf --list-dirs agent-ssh-socket)
+}
+
 # Configure ssh-agent via GPG-agent/YubiKey
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye > /dev/null
