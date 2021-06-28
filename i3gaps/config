@@ -254,7 +254,7 @@ bindsym $mod+p exec /usr/bin/autorandr --change
 ## Autoruns
 exec --no-startup-id /usr/bin/compton --config ~/.config/compton/compton.conf
 exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id /usr/bin/variety
+exec --no-startup-id XDG_CURRENT_DESKTOP=i3-gaps /usr/bin/variety
 exec --no-startup-id /usr/bin/nextcloud
 exec --no-startup-id /usr/bin/redshift -c ~/.config/redshift/redshift.conf
 exec --no-startup-id /usr/bin/lxpolkit
@@ -266,6 +266,7 @@ exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id /usr/bin/autorandr --change
 exec --no-startup-id /usr/bin/sudo /usr/bin/brightd -v -f -w 60
 exec --no-startup-id /usr/bin/riot-desktop
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11
 
 # move window to scratchpad
 bindsym $mod+i move scratchpad
