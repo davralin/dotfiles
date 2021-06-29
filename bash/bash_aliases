@@ -75,6 +75,9 @@ function sudossh() {
   /usr/bin/ssh -t $1 sudo -i
 }
 
+####### container-stuff
+alias kubectl='/usr/bin/podman run -it --rm --name kubectl -v $HOME/.kube/config:/.kube/config:ro -v /tmp/:/transfer/:rw docker.io/bitnami/kubectl'
+
 # Connect to bluetooth
 function btconnect() {
   /usr/bin/bluetoothctl connect $1
