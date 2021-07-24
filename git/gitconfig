@@ -1,7 +1,11 @@
 [user]
-name = davralin
-email = git@davralin.work
+	name = davralin
+	email = gpg@davralin.work
+	signingkey = 8C3D28C129BCD472
 
 [alias]
-l = log --pretty=oneline -n 20 --graph --abbrev-commit
-s = status -s
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	s = status -s
+
+[commit]
+	gpgsign = true
