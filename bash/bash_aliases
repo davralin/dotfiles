@@ -84,7 +84,10 @@ function vpnrestart() {
 }
 
 ####### container-stuff
-#alias kubectl='/usr/bin/podman run -it --rm -v $HOME/.kube/config:/.kube/config:ro -v /tmp/:/transfer/:rw docker.io/bitnami/kubectl'
+function convert() {
+  echo "/usr/bin/podman run -it --rm -v $(pwd):/output:rw docker.io/jess/imagemagick convert /output/* /output/output.pdf"
+  /usr/bin/podman run -it --rm -v $(pwd):/output:rw docker.io/jess/imagemagick convert /output/* /output/output.pdf
+}
 
 # Connect to bluetooth
 function btconnect() {
