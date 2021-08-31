@@ -85,7 +85,6 @@ function vpnrestart() {
 
 ####### container-stuff
 function convert() {
-  echo "/usr/bin/podman run -it --rm -v $(pwd):/output:rw docker.io/jess/imagemagick convert /output/* /output/output.pdf"
   /usr/bin/podman run -it --rm -v $(pwd):/output:rw docker.io/jess/imagemagick convert /output/* /output/output.pdf
 }
 
