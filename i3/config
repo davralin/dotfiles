@@ -264,6 +264,7 @@ exec --no-startup-id /usr/bin/thunar --daemon
 exec --no-startup-id /usr/bin/xautolock -detectsleep -time 10 -locker "~/.config/i3/scripts/i3lockblur.sh" -notify 30 -notifier "/usr/bin/notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id /usr/bin/autorandr --change
+exec --no-startup-id /usr/bin/udiskie --smart-tray --file-manager /usr/bin/thunar
 exec --no-startup-id ~/.config/i3/scripts/applaunch_element.sh
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11
 
