@@ -108,6 +108,10 @@ function drainboot() {
   timeout 60 kubectl drain $1 --ignore-daemonsets --delete-emptydir-data; sleep 5; rreboot $1; sleep 20; sssh $1 uptime; sleep 10; kubectl uncordon $1
 }
 
+function offdrain() {
+  timeout 60 kubectl drain $1 --ignore-daemonsets --delete-emptydir-data; sleep 5; ssh -t $1 sudo poweroff; sleep 20; sssh $1 uptime; sleep 10; kubectl uncordon $1
+}
+
 function k8slist() {
   kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n $1
 }
