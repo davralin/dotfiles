@@ -1,7 +1,7 @@
 [user]
 	name = davralin
 	email = gpg@davralin.work
-	signingkey = 8C3D28C129BCD472
+	signingkey = D91FA122CA59FD47
 
 [alias]
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
