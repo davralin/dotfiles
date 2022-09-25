@@ -19,7 +19,7 @@
 #  MA 02110-1301, USA.
 #
 #
-readarray -t output <<< $(/usr/bin/acpi battery)
+readarray -t output <<< $(acpi battery)
 battery_count=${#output[@]}
 
 for line in "${output[@]}";
@@ -33,12 +33,6 @@ do
         remainings+=("")
     fi
 done
-
-if [[ $percentages == "0" ]]
-then
-   # We will assume that the device doesn't really have a battery, and then die silently.
-   exit 0
-fi
 
 squares="■"
 
@@ -110,7 +104,6 @@ do
     ;;
     "Discharging"|"Unknown")
         if (( percentages[$i] >= 0 && percentages[$i] < 10 )); then
-	    /usr/bin/notify-send -u critical "Low battery!"
             color="${dis_colors[0]}"
         elif (( percentages[$i] >= 10 && percentages[$i] < 20 )); then
             color="${dis_colors[1]}"
