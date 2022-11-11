@@ -303,3 +303,5 @@ assign [class="Element"] $ws9
 for_window [class="Element"] layout tabbed
 assign [class="discord"] $ws9
 for_window [class="discord"] layout tabbed
+assign [class="signal"] $ws9
+for_window [class="signal"] layout tabbed
