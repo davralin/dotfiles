@@ -32,8 +32,7 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $terminal            /usr/bin/xfce4-terminal --hide-toolbar --hide-menubar
-set $terminal2           /usr/bin/urxvt
+set $terminal            /usr/bin/kitty
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -287,7 +286,7 @@ for_window [instance="dropdown"] move position center
 for_window [instance="dropdown"] move scratchpad
 exec --no-startup-id $terminal2 -name dropdown
 bindsym $mod+F2 [instance="dropdown"] scratchpad show; move position center
-bindsym $mod+Shift+F2 exec --no-startup-id $terminal2 -name dropdown
+bindsym $mod+Shift+F2 exec --no-startup-id $terminal --name dropdown --title dropdown
 
 # Calculate-scratchpad
 for_window [class="SpeedCrunch"] floating enable
