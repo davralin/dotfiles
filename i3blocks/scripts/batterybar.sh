@@ -78,6 +78,7 @@ for i in $(seq 0 $end);
 do
     if (( percentages[$i] > 0 && percentages[$i] < 20  )); then
         squares="■"
+	/usr/bin/notify-send -u critical "Low battery!"
     elif (( percentages[$i] >= 20 && percentages[$i] < 40 )); then
         squares="■■"
     elif (( percentages[$i] >= 40 && percentages[$i] < 60 )); then
