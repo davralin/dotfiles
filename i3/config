@@ -294,7 +294,7 @@ for_window [class="SpeedCrunch"] resize set 400 200
 for_window [class="SpeedCrunch"] move position mouse
 for_window [class="SpeedCrunch"] move scratchpad
 bindsym $mod+c [class="SpeedCrunch"] scratchpad show; move position mouse
-exec --no-startup-id /usr/bin/flatpak run org.speedcrunch.SpeedCrunch
+exec --no-startup-id speedcrunch
 
 # Assignments
 assign [class="Steam"] $ws8
