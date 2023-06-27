@@ -1,21 +1,21 @@
 ####### Git-stuff
 # Undo last commit
-alias undocommit='/usr/bin/git reset --soft HEAD~1'
+alias undocommit='git reset --soft HEAD~1'
 # Rebase and push
 function pp() {
-  /usr/bin/git pull --rebase; /usr/bin/git push
+  git pull --rebase; git push
 }
 # Git add all, then show diff changes
 function addiff() {
-  /usr/bin/git add .; /usr/bin/git diff --staged
+  git add .; git diff --staged
 }
 # Git stash and drop
 function gitdrop() {
-  /usr/bin/git stash; /usr/bin/git stash drop
+  git stash; git stash drop
 }
 
 ####### tmux
-alias ta='/usr/bin/tmux attach'
+alias ta='tmux attach || tmux'
 
 ####### apt-stuff
 # What-Upgrade? Lists what should be upgraded on a remote machine
@@ -29,35 +29,35 @@ function dou() {
 
 # Update&&Upgrade on local machine
 function aptu() {
-  /usr/bin/sudo /usr/bin/apt update && /usr/bin/sudo /usr/bin/apt dist-upgrade --autoremove
+  sudo apt update && sudo apt dist-upgrade --autoremove
 }
-alias aptsh='/usr/bin/apt-cache show $1'
-alias aptsearch='/usr/bin/apt-cache search $1'
+alias aptsh='apt-cache show $1'
+alias aptsearch='apt-cache search $1'
 
 ####### gpg-stuff
 # Temporarily decrypt something, and then shred it
 function decrypt() {
-  /usr/bin/clear
-  /usr/bin/editor /tmp/decrypt
-  /usr/bin/gpg --decrypt /tmp/decrypt
-  /usr/bin/shred -z --remove /tmp/decrypt
+  clear
+  editor /tmp/decrypt
+  gpg --decrypt /tmp/decrypt
+  shred -z --remove /tmp/decrypt
 }
 # Sign a message
 function sign() {
-  /usr/bin/editor /tmp/sign
-  /usr/bin/gpg --clearsign /tmp/sign
-  /usr/bin/cat /tmp/sign.asc
-  /usr/bin/shred -z --remove /tmp/sign
-  /usr/bin/shred -z --remove /tmp/sign.asc
+  editor /tmp/sign
+  gpg --clearsign /tmp/sign
+  cat /tmp/sign.asc
+  shred -z --remove /tmp/sign
+  shred -z --remove /tmp/sign.asc
 }
 
 # Kill running-gpg-agent
 function killgpg() {
-  /usr/bin/kill $(/usr/bin/ps aux | /usr/bin/grep /usr/bin/gpg-agent | /usr/bin/grep -v grep | /usr/bin/awk '{print $2}')
+  kill $(ps aux | grep gpg-agent | grep -v grep | awk '{print $2}')
   export GPG_TTY=$(tty)
-  /usr/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
+  gpg-connect-agent updatestartuptty /bye > /dev/null
   unset SSH_AGENT_PID
-  export SSH_AUTH_SOCK=$(/usr/bin/gpgconf --list-dirs agent-ssh-socket)
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 }
 
 # Configure ssh-agent via GPG-agent/YubiKey
@@ -67,30 +67,25 @@ unset SSH_AGENT_PID
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 ####### ssh-stuff
-alias sshk='/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R $1'
-alias sshi='/usr/bin/ssh -o StrictHostKeyChecking=no $1'
+alias sshk='ssh-keygen -f ~/.ssh/known_hosts -R $1'
+alias sshi='ssh -o StrictHostKeyChecking=no $1'
 
 # Sudo-ssh, for when you need to do stuff remotely as root
 function sudossh() {
-  /usr/bin/ssh -t $1 sudo -i
+  ssh -t $1 sudo -i
 }
 
 ####### network-stuff
 function vpnstop() {
-  /usr/bin/sudo /bin/systemctl stop wg-quick@wg0.service
+  sudo systemctl stop wg-quick@wg0.service
 }
 function vpnrestart() {
-  /usr/bin/sudo /bin/systemctl restart wg-quick@wg0.service
-}
-
-####### container-stuff
-function convert() {
-  /usr/bin/podman run -it --rm -v $(pwd):/output:rw docker.io/jess/imagemagick convert /output/* /output/output.pdf
+  sudo systemctl restart wg-quick@wg0.service
 }
 
 # Connect to bluetooth
 function btconnect() {
-  /usr/bin/bluetoothctl connect $1
+  bluetoothctl connect $1
 }
 
 # Does a remote reboot of given ssh-name
@@ -111,7 +106,7 @@ function k8slist() {
 # Use for long-running tasks
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias rpwd='/usr/bin/openssl rand -hex $1'
+alias rpwd='openssl rand -hex $1'
 alias cls='clear'
 alias q='exit'
 alias ..='cd ..'
