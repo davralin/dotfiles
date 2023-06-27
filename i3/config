@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $rofi /usr/bin/rofi
+set $rofi rofi
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -32,7 +32,7 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $terminal            /usr/bin/kitty
+set $terminal            kitty
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -222,8 +222,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec /usr/bin/sudo /usr/bin/brightnessctl -q set +5%
-bindsym XF86MonBrightnessDown exec /usr/bin/sudo /usr/bin/brightnessctl -q set 5%-
+bindsym XF86MonBrightnessUp exec sudo brightnessctl -q set +5%
+bindsym XF86MonBrightnessDown exec sudo brightnessctl -q set 5%-
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -236,36 +236,36 @@ bindsym $mod+F7 exec playerctl previous
 bindsym $mod+F8 exec playerctl next
 
 # Screenshot & Screencast
-bindsym Print exec --no-startup-id /usr/bin/flameshot full -c
-bindsym Shift+Print exec --no-startup-id /usr/bin/flameshot screen -c
-bindsym Control+Print exec --no-startup-id /usr/bin/flameshot gui
+bindsym Print exec --no-startup-id flameshot full -c
+bindsym Shift+Print exec --no-startup-id flameshot screen -c
+bindsym Control+Print exec --no-startup-id flameshot gui
 
 ## Exec
 bindsym $mod+Shift+x exec ~/.config/i3/scripts/i3lockblur.sh && playerctl pause
 bindsym $mod+Shift+s exec ~/.config/i3/scripts/i3lockblur.sh && /bin/systemctl suspend && playerctl pause
 bindsym $mod+Shift+w exec ~/.config/i3/scripts/applaunch_firefox.sh
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym $mod+Shift+f exec /usr/bin/thunar
+bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/shutdown_menu.sh
 bindsym $mod+b exec ~/.config/i3/scripts/bluetoothctl.sh
-bindsym $mod+p exec /usr/bin/autorandr --change
+bindsym $mod+p exec autorandr --change
 
 ## Autoruns
-exec --no-startup-id /usr/bin/compton --config ~/.config/compton/compton.conf
-exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id XDG_CURRENT_DESKTOP=i3 /usr/bin/variety
-exec --no-startup-id /usr/bin/nextcloud
-exec --no-startup-id /usr/bin/gammastep -c ~/.config/gammastep/gammastep.conf
-exec --no-startup-id /usr/bin/lxpolkit
-exec --no-startup-id /usr/bin/guake
-exec --no-startup-id /usr/bin/unclutter -idle 2
-exec --no-startup-id /usr/bin/thunar --daemon
-exec --no-startup-id /usr/bin/xautolock -detectsleep -time 120 -locker "~/.config/i3/scripts/i3lockblur.sh" -notify 30 -notifier "/usr/bin/notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
+exec --no-startup-id compton --config ~/.config/compton/compton.conf
+exec --no-startup-id nm-applet
+exec --no-startup-id XDG_CURRENT_DESKTOP=i3 variety
+exec --no-startup-id nextcloud
+exec --no-startup-id gammastep -c ~/.config/gammastep/gammastep.conf
+exec --no-startup-id lxpolkit
+exec --no-startup-id guake
+exec --no-startup-id unclutter -idle 2
+exec --no-startup-id thunar --daemon
+exec --no-startup-id xautolock -detectsleep -time 120 -locker "~/.config/i3/scripts/i3lockblur.sh" -notify 30 -notifier "notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
 exec --no-startup-id i3-msg workspace $ws1
-exec --no-startup-id /usr/bin/autorandr --change
-exec --no-startup-id /usr/bin/udiskie --smart-tray --file-manager /usr/bin/thunar
+exec --no-startup-id autorandr --change
+exec --no-startup-id udiskie --smart-tray --file-manager thunar
 exec --no-startup-id ~/.config/i3/scripts/applaunch_element.sh
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11
+exec --no-startup-id gnome-keyring-daemon --start --components=secrets,pkcs11
 
 # move window to scratchpad
 bindsym $mod+i move scratchpad
@@ -274,7 +274,7 @@ bindsym $mod+i move scratchpad
 bindsym $mod+Shift+i sticky toggle
 
 # Music-scratchpad
-exec --no-startup-id /usr/bin/clementine
+exec --no-startup-id clementine
 for_window [class="Clementine"] floating enable
 for_window [class="Clementine"] move scratchpad
 bindsym $mod+F1 [class="Clementine"] scratchpad show, resize set 1000 650
