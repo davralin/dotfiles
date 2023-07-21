@@ -6,6 +6,7 @@
 [alias]
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 	s = status -s
+	showlog = log -p --
 
 [commit]
 	gpgsign = true
