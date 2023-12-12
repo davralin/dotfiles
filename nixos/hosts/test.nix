@@ -7,21 +7,21 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-      ./auto-update.nix
-      ./common.nix
-      ./firmware.nix
-#      ./i3.nix
-      ./garbage-collect.nix
-#      ./gnome.nix
-      ./locale.nix
-      ./gnupg.nix
-      ./kernel.nix
-      ./mikr.nix
-      ./pipewire.nix
-      ./ssh.nix
-      ./sudo.nix
-      ./unfree.nix
+      ../hardware-configuration.nix
+      ../includes/auto-update.nix
+      ../includes/common.nix
+      ../includes/firmware.nix
+#      ../includes/i3.nix
+      ../includes/garbage-collect.nix
+      ../includes/gnome.nix
+      ../includes/locale.nix
+      ../includes/gnupg.nix
+      ../includes/kernel.nix
+      ../includes/mikr.nix
+      ../includes/pipewire.nix
+      ../includes/ssh.nix
+      ../includes/sudo.nix
+      ../includes/unfree.nix
     ];
 
   # Bootloader.

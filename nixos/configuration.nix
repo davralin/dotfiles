@@ -1,1 +1,1 @@
-test.nix
+hosts/test.nix
