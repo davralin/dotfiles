@@ -39,7 +39,6 @@
   environment.systemPackages = with pkgs; [
     zeroad
     ansible
-    autorandr
     brightnessctl
     clementine
     flameshot
@@ -54,7 +53,6 @@
     popsicle
     talosctl
     tmux
-    rofi
     dunst
     xfce.thunar
     yad

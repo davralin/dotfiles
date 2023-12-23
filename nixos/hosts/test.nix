@@ -11,9 +11,9 @@
       ../includes/auto-update.nix
       ../includes/common.nix
       ../includes/firmware.nix
-#      ../includes/i3.nix
+      ../includes/i3.nix
       ../includes/garbage-collect.nix
-      ../includes/gnome.nix
+#      ../includes/gnome.nix
       ../includes/locale.nix
       ../includes/gnupg.nix
       ../includes/kernel.nix
