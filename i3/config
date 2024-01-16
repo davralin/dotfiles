@@ -32,7 +32,7 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $terminal            kitty
+set $terminal            alacritty
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
