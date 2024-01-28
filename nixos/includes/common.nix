@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs; [
     git
     silver-searcher
+    tmux
     vim
     wget
   ];
