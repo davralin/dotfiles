@@ -22,7 +22,6 @@
       ../includes/ssh.nix
       ../includes/sudo.nix
       ../includes/unfree.nix
-      ../includes/xfce.nix
     ];
 
   # Bootloader.
