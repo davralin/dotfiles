@@ -249,6 +249,7 @@ bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/shutdown_menu.sh
 bindsym $mod+b exec ~/.config/i3/scripts/bluetoothctl.sh
 bindsym $mod+p exec autorandr --change
+bindsym $mod+Shift+p exec autorandr --load laptop
 
 ## Autoruns
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
