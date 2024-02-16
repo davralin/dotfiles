@@ -5,8 +5,8 @@
 { config, pkgs, ... }:
 
 {
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  boot.plymouth.enable = true;
+
   environment.systemPackages = with pkgs; [
     usbutils
   ];
