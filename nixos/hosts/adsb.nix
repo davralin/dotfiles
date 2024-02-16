@@ -19,17 +19,20 @@
       ../includes/gnupg.nix
       ../includes/kernel.nix
       ../includes/mikr.nix
+      ../includes/node-exporter.nix
+      ../includes/physical.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
+      ../includes/tailscale.nix
       ../includes/unfree.nix
+      ../includes/xfce.nix
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = false;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "ADSB"; # Define your hostname.
+  # networking.hostName = "ADSB"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable touchpad support (enabled default in most desktopManager).
