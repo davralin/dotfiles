@@ -33,7 +33,7 @@ mount -t tmpfs none /mnt
 mkdir -p /mnt/{boot,nix,etc/nixos,var/log}
 mount $DISK-part1 /mnt/boot
 mount $DISK-part2 /mnt/nix
-mkdir -p /mnt/nix/persist/{etc/nixos,var/log}
+mkdir -p /mnt/nix/persist/{etc/nixos,etc/ssh,etc/NetworkManager/system-connections,var/log,var/lib/bluetooth}
 mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
 mount -o bind /mnt/nix/persist/var/log /mnt/var/log
 
