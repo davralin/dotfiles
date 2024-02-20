@@ -14,7 +14,7 @@
     = "/nix/persist/etc/ssh/ssh_host_ed25519_key";
   environment.etc."ssh/ssh_host_ed25519_key.pub".source
     = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
-  etc."NetworkManager/system-connections".source
+  environment.etc."NetworkManager/system-connections".source
     = "/nix/persist/etc/NetworkManager/system-connections/";
   systemd.tmpfiles.rules = [
     "L /var/lib/bluetooth - - - - /nix/persist/var/lib/bluetooth"
