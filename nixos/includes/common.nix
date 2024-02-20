@@ -9,6 +9,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    ncdu
     silver-searcher
     tmux
     vim
