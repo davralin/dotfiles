@@ -21,6 +21,7 @@
       ../includes/physical.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
+      ../includes/tor_client.nix
       ../includes/unfree.nix
       ../includes/xfce.nix
     ];
