@@ -5,8 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  boot.plymouth.enable = true;
-
   environment.systemPackages = with pkgs; [
     usbutils
   ];
