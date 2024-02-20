@@ -29,7 +29,7 @@ function dou() {
 
 # Update&&Upgrade on local machine
 function aptu() {
-  sudo apt update && sudo apt dist-upgrade --autoremove
+  sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt dist-upgrade --autoremove
 }
 alias aptsh='apt-cache show $1'
 alias aptsearch='apt-cache search $1'
