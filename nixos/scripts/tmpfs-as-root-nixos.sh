@@ -33,9 +33,10 @@ mount -t tmpfs none /mnt
 mkdir -p /mnt/{boot,nix,etc/nixos,var/log}
 mount $DISK-part1 /mnt/boot
 mount $DISK-part2 /mnt/nix
-mkdir -p /mnt/nix/persist/{etc/nixos,etc/ssh,etc/NetworkManager/system-connections,var/log,var/lib/bluetooth}
+mkdir -p /mnt/nix/persist/{etc/nixos,etc/ssh,etc/NetworkManager/system-connections,var/log,var/lib/bluetooth,opt}
 mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
 mount -o bind /mnt/nix/persist/var/log /mnt/var/log
+mount -o bind /mnt/nix/persist/opt /mnt/opt
 
 echo "Creating nixos-config"
 nixos-generate-config --root /mnt
