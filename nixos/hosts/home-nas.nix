@@ -10,9 +10,9 @@
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
-      ../includes/kernel.nix
       ../includes/mikr.nix
       ../includes/node-exporter.nix
+      ../includes/openzfs.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
       ../includes/unfree.nix
@@ -24,6 +24,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "home-nas";
+  # for OpenZFS
+  networking.hostId = "3f784dab";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
