@@ -3,14 +3,16 @@
 {
   imports =
     [
-      ../hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       ../includes/auto-update.nix
       ../includes/common.nix
+      ../includes/common-gui.nix
       ../includes/docker.nix
       ../includes/docker-adsb.nix
       ../includes/docker-watchtower.nix
       ../includes/firmware.nix
       ../includes/garbage-collect.nix
+      ../includes/impermanence-root.nix
       ../includes/locale.nix
       ../includes/gnupg.nix
       ../includes/kernel.nix
@@ -29,26 +31,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.hostName = "ADSB"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
