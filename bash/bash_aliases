@@ -97,6 +97,9 @@ function rreboot() {
 function priv() {
   cd ~/priv/$1*
 }
+function p() {
+  cd ~/priv/$1*
+}
 
 # kubernetes-mgmt-stuff
 function k8slist() {
