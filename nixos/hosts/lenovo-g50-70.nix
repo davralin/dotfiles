@@ -11,7 +11,6 @@
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
-      ../includes/gnupg.nix
       ../includes/kernel.nix
       ../includes/mikr.nix
       ../includes/physical.nix
@@ -19,7 +18,6 @@
       ../includes/prismlauncher.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
-      ../includes/tor_client.nix
       ../includes/unfree.nix
       ../includes/xfce.nix
     ];
@@ -28,7 +26,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "Lenovo"; # Define your hostname.
+
+  # Laptop-specific things
+  services.thermald.enable = true;
+  powerManagement.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
