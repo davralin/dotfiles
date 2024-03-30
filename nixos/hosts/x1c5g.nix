@@ -5,6 +5,7 @@
     [
       /etc/nixos/hardware-configuration.nix
       ../includes/auto-update.nix
+      ../includes/bluetooth.nix
       ../includes/common.nix
       ../includes/common-gui.nix
       ../includes/firmware.nix
@@ -29,6 +30,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+  services.blueman.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
