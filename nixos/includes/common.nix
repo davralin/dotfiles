@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     btop
     git
+    glances
     ncdu
     silver-searcher
     tmux
