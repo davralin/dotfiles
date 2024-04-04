@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    powertop
+    dmidecode
     usbutils
   ];
 

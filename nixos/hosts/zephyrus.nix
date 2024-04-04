@@ -4,6 +4,8 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      # nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+      <nixos-hardware/asus/zephyrus/ga402>
       ../includes/auto-update.nix
       ../includes/bluetooth.nix
       ../includes/common.nix
@@ -16,6 +18,7 @@
       ../includes/mikr.nix
       ../includes/ollama.nix
       ../includes/physical.nix
+      ../includes/physical-laptop.nix
       ../includes/pipewire.nix
       ../includes/prismlauncher.nix
       ../includes/ssh.nix
@@ -32,8 +35,6 @@
   networking.hostName = "Zephyrus"; # Define your hostname.
 
   # Laptop-specific things
-  services.thermald.enable = true;
-  powerManagement.enable = true;
   services.blueman.enable = true;
 
   # This value determines the NixOS release from which the default

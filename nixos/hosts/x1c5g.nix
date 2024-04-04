@@ -4,6 +4,8 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      # nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+      <nixos-hardware/lenovo/thinkpad/x1/6th-gen> # It's really 5th-gen, but lets try this a bit first
       ../includes/auto-update.nix
       ../includes/bluetooth.nix
       ../includes/common.nix
@@ -16,6 +18,7 @@
       ../includes/kernel.nix
       ../includes/mikr.nix
       ../includes/physical.nix
+      ../includes/physical-laptop.nix
       ../includes/pipewire.nix
       ../includes/prismlauncher.nix
       ../includes/ssh.nix
