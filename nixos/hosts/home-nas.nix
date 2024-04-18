@@ -13,6 +13,7 @@
       ../includes/mikr.nix
       ../includes/node-exporter.nix
       ../includes/openzfs.nix
+      ../includes/rclone-backup.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
       ../includes/unfree.nix
