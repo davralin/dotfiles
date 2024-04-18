@@ -8,6 +8,7 @@
     git
     glances
     ncdu
+    rclone
     silver-searcher
     tmux
     vim
