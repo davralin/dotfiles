@@ -10,6 +10,7 @@
       ../includes/bluetooth.nix
       ../includes/common.nix
       ../includes/common-gui.nix
+      ../includes/common-x11.nix
       ../includes/firmware.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix

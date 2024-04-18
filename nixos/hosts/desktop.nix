@@ -7,6 +7,7 @@
       ../includes/auto-update.nix
       ../includes/common.nix
       ../includes/common-gui.nix
+      ../includes/common-x11.nix
       ../includes/garbage-collect.nix
       ../includes/locale.nix
       ../includes/gnupg.nix
