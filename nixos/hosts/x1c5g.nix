@@ -18,6 +18,7 @@
       ../includes/gnupg.nix
       ../includes/kernel.nix
       ../includes/mikr.nix
+      ../includes/moonlight.nix
       ../includes/physical.nix
       ../includes/physical-laptop.nix
       ../includes/pipewire.nix

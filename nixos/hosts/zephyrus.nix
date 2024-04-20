@@ -17,6 +17,7 @@
       ../includes/locale.nix
       ../includes/kernel.nix
       ../includes/mikr.nix
+      ../includes/moonlight.nix
       ../includes/ollama.nix
       ../includes/physical.nix
       ../includes/physical-laptop.nix
