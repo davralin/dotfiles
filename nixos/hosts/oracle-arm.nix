@@ -6,6 +6,8 @@
       /etc/nixos/hardware-configuration.nix
       ../includes/auto-update.nix
       ../includes/common.nix
+      ../includes/common-gui.nix
+      ../includes/common-x11.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
@@ -13,8 +15,11 @@
       ../includes/node-exporter.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
+      ../includes/sunshine.nix
       ../includes/tailscale.nix
+      ../includes/tor_client.nix
       ../includes/unfree.nix
+      ../includes/xfce.nix
     ];
 
   # Bootloader.
