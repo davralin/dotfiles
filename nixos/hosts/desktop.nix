@@ -10,8 +10,6 @@
       ../includes/common-x11.nix
       ../includes/garbage-collect.nix
       ../includes/locale.nix
-      ../includes/gnupg.nix
-      ../includes/kernel.nix
       ../includes/mikr.nix
       ../includes/qemu-guest.nix
       ../includes/ssh.nix
