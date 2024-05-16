@@ -23,6 +23,7 @@
       ../includes/tailscale.nix
       ../includes/tor_client.nix
       ../includes/unfree.nix
+      ../includes/uptime-kuma.nix
       ../includes/xfce.nix
     ];
 
