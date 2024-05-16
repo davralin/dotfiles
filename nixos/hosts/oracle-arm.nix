@@ -4,15 +4,19 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      ../includes/acme.nix
       ../includes/auto-update.nix
       ../includes/common.nix
       ../includes/common-gui.nix
       ../includes/common-x11.nix
       ../includes/garbage-collect.nix
+      ../includes/haproxy.nix
       ../includes/impermanence-root.nix
+      ../includes/invidious.nix
       ../includes/locale.nix
       ../includes/mikr.nix
       ../includes/node-exporter.nix
+      ../includes/ollama.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
       ../includes/sunshine.nix
