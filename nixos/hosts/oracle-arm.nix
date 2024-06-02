@@ -12,7 +12,6 @@
       ../includes/garbage-collect.nix
       ../includes/haproxy.nix
       ../includes/impermanence-root.nix
-      ../includes/invidious.nix
       ../includes/locale.nix
       ../includes/mikr.nix
       ../includes/node-exporter.nix
