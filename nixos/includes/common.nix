@@ -5,6 +5,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     btop
+    fastfetch
     git
     glances
     ncdu
