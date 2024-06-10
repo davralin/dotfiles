@@ -7,6 +7,7 @@
       ../includes/auto-update.nix
       ../includes/backup-k8s.nix
       ../includes/common.nix
+      ../includes/docker.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
