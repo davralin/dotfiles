@@ -9,6 +9,7 @@
       ../includes/backup-k8s.nix
       ../includes/common.nix
       ../includes/docker.nix
+      ../includes/docker-adguard.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
