@@ -10,6 +10,7 @@
       ../includes/common.nix
       ../includes/docker.nix
       ../includes/docker-adguard.nix
+      ../includes/docker-immich.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
