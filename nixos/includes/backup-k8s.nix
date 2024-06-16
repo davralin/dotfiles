@@ -5,6 +5,7 @@
   users.users.backup = {
     isNormalUser = true;
     description = "Backup@k8s";
+    extraGroups = [ "wheel" ];
     createHome = true;
     group = "backup";
     home = "/opt/backup";

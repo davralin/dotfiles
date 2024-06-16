@@ -31,7 +31,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "ADSB"; # Define your hostname.
+  #networking = {
+  #  hostName = "adsb";
+  #};
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

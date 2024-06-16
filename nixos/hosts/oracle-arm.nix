@@ -31,7 +31,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "oracle-arm";
+  networking = {
+    hostName = "oracle-arm";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

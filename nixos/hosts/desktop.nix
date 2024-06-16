@@ -25,7 +25,9 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = false;
 
-  networking.hostName = "Desktop"; # Define your hostname.
+  networking = {
+    hostName = "Desktop";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

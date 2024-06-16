@@ -8,6 +8,7 @@
     fastfetch
     git
     glances
+    iotop
     ncdu
     nmap
     rclone

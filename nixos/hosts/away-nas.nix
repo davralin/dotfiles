@@ -4,6 +4,7 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      ../includes/acme.nix
       ../includes/ansible.nix
       ../includes/auto-update.nix
       ../includes/backup-k8s.nix
@@ -12,28 +13,25 @@
       ../includes/docker-adguard.nix
       ../includes/docker-immich.nix
       ../includes/garbage-collect.nix
+      ../includes/haproxy.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
       ../includes/mikr.nix
       ../includes/node-exporter.nix
       ../includes/openzfs.nix
-      ../includes/rclone-backup.nix
+      ../includes/samba.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
+      ../includes/tailscale.nix
       ../includes/unfree.nix
     ];
 
   # ZFS-config:
-  # zpool create -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=12 home-nas /dev/disk/by-id/xxx /dev/disk/by-id/xxx
-  # zfs set com.sun:auto-snapshot=true home-nas
-  # zfs create -o mountpoint=legacy home-nas/local
-
-  # Add mdadm-support for /nix
-  boot.swraid = {
-    enable = true;
-    mdadmConf =
-      "ARRAY /dev/md0 level=raid1 num-devices=2 metadata=1.2 name=nixos:0 UUID=6ae89e1b:881758ed:3abb2a8b:d3da1b16 devices=/dev/sda1,/dev/sdb1";
-  };
+  # zpool create -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=12 away-nas mirror /dev/disk/by-id/xxx /dev/disk/by-id/xxx
+  # zfs set com.sun:auto-snapshot=true away-nas
+  # zfs create -o mountpoint=legacy away-nas/coldstorage
+  # zfs create -o mountpoint=legacy away-nas/local
+  # zfs create -o mountpoint=legacy away-nas/remote
 
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
@@ -41,8 +39,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "home-nas";
-    hostId = "3f784dab"; # for OpenZFS
+    hostName = "away-nas";
+    hostId = "3f784bad"; # for OpenZFS
   };
 
   # This value determines the NixOS release from which the default

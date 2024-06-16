@@ -6,34 +6,19 @@
       /etc/nixos/hardware-configuration.nix
       ../includes/ansible.nix
       ../includes/auto-update.nix
-      ../includes/backup-k8s.nix
       ../includes/common.nix
       ../includes/docker.nix
-      ../includes/docker-adguard.nix
-      ../includes/docker-immich.nix
+      ../includes/docker-minio.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
       ../includes/mikr.nix
+      ../includes/qemu-guest.nix
       ../includes/node-exporter.nix
-      ../includes/openzfs.nix
-      ../includes/rclone-backup.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
       ../includes/unfree.nix
     ];
-
-  # ZFS-config:
-  # zpool create -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=12 home-nas /dev/disk/by-id/xxx /dev/disk/by-id/xxx
-  # zfs set com.sun:auto-snapshot=true home-nas
-  # zfs create -o mountpoint=legacy home-nas/local
-
-  # Add mdadm-support for /nix
-  boot.swraid = {
-    enable = true;
-    mdadmConf =
-      "ARRAY /dev/md0 level=raid1 num-devices=2 metadata=1.2 name=nixos:0 UUID=6ae89e1b:881758ed:3abb2a8b:d3da1b16 devices=/dev/sda1,/dev/sdb1";
-  };
 
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
@@ -41,8 +26,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "home-nas";
-    hostId = "3f784dab"; # for OpenZFS
+    hostName = "MinIO";
   };
 
   # This value determines the NixOS release from which the default

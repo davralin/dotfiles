@@ -8,6 +8,7 @@
       ../includes/auto-update.nix
       ../includes/common.nix
       ../includes/docker.nix
+      ../includes/docker-tubearchivist.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
@@ -24,7 +25,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "TubeArchivist";
+  networking = {
+    hostName = "TubeArchivist";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

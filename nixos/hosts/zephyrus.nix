@@ -34,7 +34,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "Zephyrus"; # Define your hostname.
+  networking = {
+    hostName = "Zephyrus";
+  };
 
   # Laptop-specific things
   services.blueman.enable = true;

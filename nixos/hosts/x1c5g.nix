@@ -34,7 +34,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking = {
+    hostName = "nixos";
+  };
   services.blueman.enable = true;
 
   # This value determines the NixOS release from which the default
