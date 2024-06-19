@@ -4,15 +4,16 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      ../includes/ansible.nix
       ../includes/auto-update.nix
       ../includes/common.nix
       ../includes/common-gui.nix
       ../includes/common-x11.nix
       ../includes/docker.nix
       ../includes/docker-adsb.nix
-      ../includes/docker-watchtower.nix
       ../includes/firmware.nix
       ../includes/garbage-collect.nix
+      ../includes/i3.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
       ../includes/gnupg.nix
@@ -24,7 +25,6 @@
       ../includes/sudo.nix
       ../includes/tailscale.nix
       ../includes/unfree.nix
-      ../includes/xfce.nix
     ];
 
   # Bootloader.
