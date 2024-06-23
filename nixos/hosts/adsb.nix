@@ -17,7 +17,6 @@
       ../includes/impermanence-root.nix
       ../includes/locale.nix
       ../includes/gnupg.nix
-      ../includes/kernel.nix
       ../includes/mikr.nix
       ../includes/node-exporter.nix
       ../includes/physical.nix
