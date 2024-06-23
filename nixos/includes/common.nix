@@ -5,6 +5,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     btop
+    cloud-utils # growpart
     fastfetch
     git
     glances
