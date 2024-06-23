@@ -9,6 +9,7 @@
     fastfetch
     git
     glances
+    iftop
     iotop
     ncdu
     nmap
