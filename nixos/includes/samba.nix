@@ -11,6 +11,8 @@
     extraConfig = ''
       server min protocol = SMB3
       guest ok = yes
+      guest account = backup
+      map to guest = bad user
     '';
     #shares = {
     #  test = {
