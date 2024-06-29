@@ -17,6 +17,7 @@
       ../includes/mikr.nix
       ../includes/node-exporter.nix
       ../includes/openzfs.nix
+      ../includes/physical.nix
       ../includes/rclone-backup.nix
       ../includes/rsnapshot.nix
       ../includes/ssh.nix

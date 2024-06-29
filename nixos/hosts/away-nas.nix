@@ -19,6 +19,7 @@
       ../includes/mikr.nix
       ../includes/node-exporter.nix
       ../includes/openzfs.nix
+      ../includes/physical.nix
       ../includes/rsnapshot.nix
       ../includes/samba.nix
       ../includes/ssh.nix
