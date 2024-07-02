@@ -30,7 +30,7 @@ mkfs.ext4 -m0 -L nixstore $DISK-part2
 
 echo "Mounting the things"
 mount -t tmpfs none /mnt
-mkdir -p /mnt/{boot,nix,etc/nixos,var/log}
+mkdir -p /mnt/{boot,nix,etc/nixos,var/log,opt}
 mount $DISK-part1 /mnt/boot
 mount $DISK-part2 /mnt/nix
 mkdir -p /mnt/nix/persist/{etc/nixos,etc/ssh,etc/NetworkManager/system-connections,var/log,var/lib/bluetooth,var/lib/tailscale,opt}
