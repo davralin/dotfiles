@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  services.displayManager = {
+    defaultSession = "none+i3";
+    };
   services.xserver = {
     enable = true;
 
@@ -8,13 +11,10 @@
       xterm.enable = false;
     };
 
-    displayManager = {
-        defaultSession = "none+i3";
-    };
-
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
+        alacritty
         autorandr
         dmenu
         i3status
