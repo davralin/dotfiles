@@ -4,6 +4,7 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      ../includes/ansible.nix
       ../includes/auto-update.nix
       ../includes/common.nix
       ../includes/docker.nix
