@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     btop
     cloud-utils # growpart
+    dig
     fastfetch
     git
     glances
