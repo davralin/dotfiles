@@ -11,6 +11,7 @@
       ../includes/docker.nix
       ../includes/docker-adguard.nix
       ../includes/docker-immich.nix
+      ../includes/docker-zigbee2mqtt.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
