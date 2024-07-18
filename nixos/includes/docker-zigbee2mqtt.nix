@@ -10,4 +10,5 @@
     wantedBy = ["multi-user.target"];
     after = ["docker.service" "docker.socket"];
   };
+  networking.firewall.allowedTCPPorts = [ 8080 ];
 }
