@@ -9,9 +9,7 @@
   #  - https://dataswamp.org/~solene/2022-08-03-nixos-with-live-usb-router.html
 
   powerManagement.cpuFreqGovernor = "ondemand";
-  services.acpid.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  services.irqbalance.enable = true;
 
   boot.kernel = {
     sysctl = {
