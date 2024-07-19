@@ -33,17 +33,33 @@
 
   networking = {
     firewall.interfaces = {
+      enp4s0 = {
+        allowedTCPPorts = [ ];
+        allowedUDPPorts = [
+          443 # WireGuard
+        ];
+      };
       lan = {
         allowedTCPPorts = [
           22 # SSH
           53 # DNSmasq
           9100 # node-exporter
           9153 # node-exporter for DNSmasq
+          9586 # node-exporter for WireGuard
         ];
         allowedUDPPorts = [
           53 # DNSmasq
           67 # DNSmasq-dhcp
           69 # DNSmasq-tftp
+        ];
+      };
+      wg0 = {
+        allowedTCPPorts = [
+          22 # SSH
+          53 # DNSmasq
+        ];
+        allowedUDPPorts = [
+          53 # DNSmasq
         ];
       };
     };
@@ -59,6 +75,7 @@
       enable = true;
       internalInterfaces = [
         "lan"
+        "wg0"
       ];
       externalInterface = "enp4s0";
       forwardPorts = [
@@ -94,6 +111,27 @@
         }
       ];
     };
+    wireguard.interfaces = {
+      wg0 = {
+        ips = [ "10.0.2.1/24" ];
+        listenPort = 443;
+        privateKeyFile = "/opt/wireguard/wg-private.key";
+        peers = [
+        { # GL-Inet
+          publicKey = "fkHlLh5BDi9NVDumkmU4PdlnH26q7JLpi4X1Cd6EYFE=";
+          allowedIPs = [ "10.0.2.2/32" ];
+        }
+        { # Laptop
+          publicKey = "hW6rycb0yug7eq3NUloXUDE+dYlDcINd2FuBBPCPflc=";
+          allowedIPs = [ "10.0.2.3/32" ];
+        }
+        { # Phone
+          publicKey = "f5EOS4Imm9H4CJup/SCvQjocPKM7Givd/UOcAbMjg2Q=";
+          allowedIPs = [ "10.0.2.4/32" ];
+        }
+      ];
+      };
+    };
   };
   services = {
     avahi = {
@@ -115,6 +153,9 @@
     };
     resolved = {
       enable = false;
+    };
+    prometheus.exporters.wireguard = {
+      enable = true;
     };
   };
 }

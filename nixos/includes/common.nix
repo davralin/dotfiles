@@ -16,6 +16,7 @@
     nmap
     rclone
     silver-searcher
+    tcpdump
     tmux
     vim
     wget
