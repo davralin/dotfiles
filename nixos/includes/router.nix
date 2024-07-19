@@ -40,6 +40,7 @@
           22 # SSH
           53 # DNSmasq
           9100 # node-exporter
+          9153 # node-exporter for DNSmasq
         ];
         allowedUDPPorts = [
           53 # DNSmasq
@@ -106,6 +107,9 @@
       ];
     };
     dnsmasq = {
+      enable = true;
+    };
+    prometheus.exporters.dnsmasq = {
       enable = true;
     };
     openssh = {
