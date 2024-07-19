@@ -7,14 +7,16 @@
       ../includes/ansible.nix
       ../includes/auto-update.nix
       ../includes/common.nix
-      ../includes/docker.nix
-      ../includes/docker-zigbee2mqtt.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
       ../includes/mikr.nix
+      ../includes/node-exporter.nix
+      ../includes/physical.nix
+      ../includes/router.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
+      ../includes/tailscale.nix
       ../includes/unfree.nix
     ];
 
@@ -23,7 +25,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "Router";
+  networking.hostName = "mierin";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

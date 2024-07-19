@@ -18,6 +18,7 @@
     = "/nix/persist/etc/NetworkManager/system-connections";
   systemd.tmpfiles.rules = [
     "L /var/lib/bluetooth - - - - /nix/persist/var/lib/bluetooth"
+    "L /var/lib/dnsmasq - - - - /nix/persist/var/lib/dnsmasq"
     "L /var/lib/tailscale - - - - /nix/persist/var/lib/tailscale"
   ];
 }
