@@ -3,7 +3,7 @@
 {
   # Enable haproxy
   services.haproxy = {
-	enable = true;
+	  enable = true;
 	};
 
   networking.firewall.allowedTCPPorts = [ 443 ];
