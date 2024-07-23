@@ -21,3 +21,19 @@ yellow = "0xf1fa8c"
 [colors.primary]
 background = "0x282a36"
 foreground = "0xf8f8f2"
+
+[window]
+decorations_theme_variant = "None"
+decorations = "Full"
+dynamic_title = true
+opacity = 0.4
+blur = true
+
+[scrolling]
+history = 100000
+
+[font]
+normal.family = "Hack"
+normal.style = "Bold"
+size = 8
+builtin_box_drawing = true
