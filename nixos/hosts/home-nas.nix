@@ -10,6 +10,7 @@
       ../includes/common.nix
       ../includes/docker.nix
       ../includes/docker-adguard.nix
+      ../includes/docker-minio.nix
       ../includes/docker-musicassistant.nix
       ../includes/docker-zigbee2mqtt.nix
       ../includes/garbage-collect.nix
