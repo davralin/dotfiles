@@ -11,6 +11,7 @@
     after = ["docker.service" "docker.socket"];
   };
   networking.firewall.allowedTCPPorts = [
+    1400
     8095
     8097
   ];
