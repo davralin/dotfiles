@@ -10,4 +10,8 @@
     wantedBy = ["multi-user.target"];
     after = ["docker.service" "docker.socket"];
   };
+  networking.firewall.allowedTCPPorts = [
+    8095
+    8097
+  ];
 }
