@@ -12,6 +12,7 @@
     glances
     iftop
     iotop
+    jq
     ncdu
     nmap
     rclone
