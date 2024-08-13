@@ -9,6 +9,7 @@
     dig
     fastfetch
     git
+    git-crypt
     glances
     iftop
     iotop
