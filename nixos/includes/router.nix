@@ -141,6 +141,7 @@
       allowInterfaces = [
         "lan"
         "tailscale0"
+        "wg0"
       ];
     };
     dnsmasq = {
