@@ -8,6 +8,7 @@
     cloud-utils # growpart
     dig
     fastfetch
+    file
     git
     git-crypt
     glances
