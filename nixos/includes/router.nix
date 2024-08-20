@@ -130,6 +130,10 @@
           publicKey = "f5EOS4Imm9H4CJup/SCvQjocPKM7Givd/UOcAbMjg2Q=";
           allowedIPs = [ "10.0.2.4/32" ];
         }
+        { # Tablet
+          publicKey = "tx8eAr/FqoXWFmZfBRwP8hWTjY7js42/85sdrsm293I=";
+          allowedIPs = [ "10.0.2.5/32" ];
+        }
       ];
       };
     };
