@@ -31,13 +31,10 @@
   # zpool create -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=12 home-nas /dev/disk/by-id/xxx /dev/disk/by-id/xxx
   # zfs set com.sun:auto-snapshot=true home-nas
   # zfs create -o mountpoint=legacy home-nas/local
+  # boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
 
-  # Add mdadm-support for /nix
-  boot.swraid = {
-    enable = true;
-    mdadmConf =
-      "ARRAY /dev/md0 level=raid1 num-devices=2 metadata=1.2 name=nixos:0 UUID=6ae89e1b:881758ed:3abb2a8b:d3da1b16 devices=/dev/sda1,/dev/sdb1";
-  };
+  # Allow on all one interfaces
+  services.prometheus.exporters.node.openFirewall = true;
 
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
