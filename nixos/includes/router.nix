@@ -8,8 +8,8 @@
   #  - https://wiki.nixos.org/wiki/Networking
   #  - https://dataswamp.org/~solene/2022-08-03-nixos-with-live-usb-router.html
 
-  powerManagement.cpuFreqGovernor = "ondemand";
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  #powerManagement.cpuFreqGovernor = "ondemand";
+  #boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   boot.kernel = {
     sysctl = {
