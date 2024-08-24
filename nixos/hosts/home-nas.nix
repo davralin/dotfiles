@@ -4,6 +4,7 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      ../includes/secrets/nullmailer.nix
       ../includes/ansible.nix
       ../includes/auto-update.nix
       ../includes/backup-k8s.nix
