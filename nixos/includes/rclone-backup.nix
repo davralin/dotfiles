@@ -15,7 +15,7 @@
     serviceConfig = {
       Type = "oneshot";
       User = "root";
-      ExecStart = "/opt/backup/backup.sh";
+      ExecStart = "/opt/local/backup.sh";
     };
   };
 }
