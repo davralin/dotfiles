@@ -13,7 +13,6 @@
       ../includes/docker-adguard.nix
       ../includes/docker-minio.nix
       ../includes/docker-musicassistant.nix
-      ../includes/docker-zigbee2mqtt.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
