@@ -119,7 +119,7 @@
         privateKeyFile = "/opt/wireguard/wg-private.key";
         peers = [
         { # GL-Inet
-          publicKey = "fkHlLh5BDi9NVDumkmU4PdlnH26q7JLpi4X1Cd6EYFE=";
+          publicKey = "h/LU8/EF3f1QcPa+thUUfgcWvMPaPyhdJUxIEb8G1kI=";
           allowedIPs = [ "10.0.2.2/32" ];
         }
         { # Laptop
