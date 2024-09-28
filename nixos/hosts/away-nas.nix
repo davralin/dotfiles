@@ -4,6 +4,8 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      ../includes/secrets/away-nas.nix
+      ../includes/secrets/nullmailer.nix
       ../includes/acme.nix
       ../includes/ansible.nix
       ../includes/auto-update.nix
