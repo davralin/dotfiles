@@ -20,7 +20,7 @@
       ../includes/router.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
-      ../includes/tailscale.nix
+      ../includes/tailscale_server.nix
       ../includes/unfree.nix
     ];
 
