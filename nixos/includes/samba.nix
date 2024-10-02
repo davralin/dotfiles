@@ -14,15 +14,5 @@
       guest account = backup
       map to guest = bad user
     '';
-    #shares = {
-    #  test = {
-    #    path = "/opt/backup/";
-    #    browseable = "yes";
-    #    "read only" = "no";
-    #    "guest ok" = "yes";
-    #    "force user" = "backup";
-    #    "force group" = "backup";
-    #  };
-    #};
   };
 }
