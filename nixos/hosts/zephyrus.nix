@@ -40,7 +40,14 @@
 
   # Laptop-specific things
   services.blueman.enable = true;
-  services.ollama.acceleration = "rocm";
+  services.ollama = {
+    acceleration = "rocm";
+    environmentVariables = {
+      HCC_AMDGPU_TARGET = "gfx1032"; # used to be necessary, but doesn't seem to anymore
+    };
+    host = "0.0.0.0";
+    rocmOverrideGfx = "10.3.2";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
