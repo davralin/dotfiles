@@ -11,6 +11,7 @@
     file
     git
     git-crypt
+    git-lfs
     glances
     iftop
     iotop
