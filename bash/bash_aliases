@@ -14,9 +14,39 @@ function gitdrop() {
   git stash; git stash drop
 }
 
-####### ffmpeg
+####### audio
 alias ffprobe='ffprobe -hide_banner'
 
+function create_pls() {
+    local output_file="${1:-playlist.pls}"  # Output file name (default: playlist.pls)
+    local dir="${2:-.}"                    # Directory to search for files (default: current directory)
+    local extension="${3:-aac}"            # File extension to include (default: aac)
+    local files=("$dir"/*."$extension")    # Collect files with the given extension in the directory
+
+    # Check if there are any files with the specified extension
+    if [[ ! -e "${files[0]}" ]]; then
+        echo "No .$extension files found in directory: $dir"
+        return 1
+    fi
+
+    # Start writing to the PLS file
+    echo "[playlist]" > "$output_file"
+    echo "NumberOfEntries=${#files[@]}" >> "$output_file"
+
+    # Add each file to the PLS file
+    local index=1
+    for file in "${files[@]}"; do
+        echo "File${index}=${file}" >> "$output_file"
+        echo "Title${index}=$(basename "${file}" ."$extension")" >> "$output_file"
+        echo "Length${index}=-1" >> "$output_file"
+        index=$((index + 1))
+    done
+
+    # Finish the PLS file
+    echo "Version=2" >> "$output_file"
+
+    echo "PLS file created: $output_file"
+}
 
 ####### tmux
 alias ta='tmux attach || tmux'
