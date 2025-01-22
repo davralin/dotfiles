@@ -266,6 +266,7 @@ exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id autorandr --change
 exec --no-startup-id udiskie --smart-tray --file-manager thunar
 exec --no-startup-id ~/.config/i3/scripts/applaunch_element.sh
+exec --no-startup-id ~/.config/i3/scripts/applaunch_buffer.sh
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets,pkcs11
 
 # move window to scratchpad
@@ -305,3 +306,4 @@ assign [class="discord"] $ws9
 for_window [class="discord"] layout tabbed
 assign [class="signal"] $ws9
 for_window [class="signal"] layout tabbed
+assign [class="buffer"] $ws10
