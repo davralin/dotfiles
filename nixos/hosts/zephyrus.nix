@@ -4,8 +4,7 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
-      # nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
-      <nixos-hardware/asus/zephyrus/ga402>
+      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/asus/zephyrus/ga402"
       ../includes/auto-update.nix
       ../includes/bluetooth.nix
       ../includes/common.nix
