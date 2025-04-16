@@ -11,6 +11,7 @@
       ../includes/common.nix
       ../includes/docker.nix
       ../includes/docker-adguard.nix
+      ../includes/docker-ersatztv.nix
       ../includes/docker-minio.nix
       ../includes/docker-musicassistant.nix
       ../includes/garbage-collect.nix
