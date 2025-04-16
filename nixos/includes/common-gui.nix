@@ -8,10 +8,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     autorandr
+    discord-ptb
     firefox
     keepassxc
     gparted
     guake
+    nvtopPackages.full
   ];
 
 }
