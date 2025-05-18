@@ -134,6 +134,10 @@
           publicKey = "tx8eAr/FqoXWFmZfBRwP8hWTjY7js42/85sdrsm293I=";
           allowedIPs = [ "10.0.2.5/32" ];
         }
+        { # ARM
+          publicKey = "VGVrbDI/epkO9xRMeXj/B7FokXfJNGt/ffj4pRPvXnk=";
+          allowedIPs = [ "10.0.2.6/32" ];
+        }
       ];
       };
     };
