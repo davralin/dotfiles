@@ -11,6 +11,7 @@
       ../includes/common-gui.nix
       ../includes/common-x11.nix
       ../includes/firmware.nix
+      ../includes/gaming.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
@@ -21,7 +22,6 @@
       ../includes/pipewire.nix
       ../includes/prismlauncher.nix
       ../includes/ssh.nix
-      ../includes/steam.nix
       ../includes/sudo.nix
       ../includes/unfree.nix
       ../includes/xfce.nix
