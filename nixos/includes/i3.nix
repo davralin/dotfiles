@@ -20,7 +20,10 @@
         i3status
         i3lock
         i3blocks
+	imagemagick
+	libnotify
         rofi
+	scrot
      ];
     };
   };
