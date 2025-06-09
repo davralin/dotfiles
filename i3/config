@@ -242,7 +242,7 @@ bindsym Control+Print exec --no-startup-id flameshot gui
 
 ## Exec
 bindsym $mod+Shift+x exec ~/.config/i3/scripts/i3lockblur.sh && playerctl pause
-bindsym $mod+Shift+s exec ~/.config/i3/scripts/i3lockblur.sh && /bin/systemctl suspend && playerctl pause
+bindsym $mod+Shift+s exec ~/.config/i3/scripts/i3lockblur.sh && /bin/systemctl hibernate && playerctl pause
 bindsym $mod+Shift+w exec ~/.config/i3/scripts/applaunch_firefox.sh
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym $mod+Shift+f exec thunar
