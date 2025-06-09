@@ -13,6 +13,7 @@
       ../includes/firmware.nix
       ../includes/gaming.nix
       ../includes/garbage-collect.nix
+      ../includes/i3.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
       ../includes/kernel.nix
@@ -24,7 +25,6 @@
       ../includes/ssh.nix
       ../includes/sudo.nix
       ../includes/unfree.nix
-      ../includes/xfce.nix
     ];
 
   # Bootloader.
