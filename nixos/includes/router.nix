@@ -138,6 +138,10 @@
           publicKey = "VGVrbDI/epkO9xRMeXj/B7FokXfJNGt/ffj4pRPvXnk=";
           allowedIPs = [ "10.0.2.6/32" ];
         }
+        { # ADSB
+          publicKey = "fTZHXZL0gc3evEeINw+tBTYweL5hf6AeVI+/4pW7zHA=";
+          allowedIPs = [ "10.0.2.7/32" ];
+        }
       ];
       };
     };
