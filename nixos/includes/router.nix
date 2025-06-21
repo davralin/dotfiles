@@ -21,8 +21,8 @@
     enable = true;
     wait-online.anyInterface = true;
     networks = {
-      "20-enp4s0" = {
-        matchConfig.Name = "enp4s0";
+      "20-enp2s0" = {
+        matchConfig.Name = "enp2s0";
         networkConfig = {
           DHCP = "ipv4";
           IPv6AcceptRA = false;
@@ -33,7 +33,7 @@
 
   networking = {
     firewall.interfaces = {
-      enp4s0 = {
+      enp2s0 = {
         allowedTCPPorts = [ ];
         allowedUDPPorts = [
           443 # WireGuard
@@ -65,7 +65,7 @@
       };
     };
     bridges.lan = {
-        interfaces = [ "enp1s0" "enp2s0" "enp3s0" ];
+        interfaces = [ "enp1s0" ];
     };
     interfaces.lan = {
         ipv4.addresses = [
@@ -78,7 +78,7 @@
         "lan"
         "wg0"
       ];
-      externalInterface = "enp4s0";
+      externalInterface = "enp2s0";
       forwardPorts = [
         {
           # minecraft
