@@ -27,7 +27,7 @@
       ../includes/samba.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
-      ../includes/tailscale_server.nix
+      ../includes/tailscale.nix
       ../includes/unfree.nix
     ];
 
