@@ -142,6 +142,10 @@
           publicKey = "fTZHXZL0gc3evEeINw+tBTYweL5hf6AeVI+/4pW7zHA=";
           allowedIPs = [ "10.0.2.7/32" ];
         }
+        { # RemoteADSB
+          publicKey = "K02QD6qlpKWrGVg7/zcfVD0e+/t2ixjdxkJqYNJ7siY=";
+          allowedIPs = [ "10.0.2.8/32" ];
+        }
       ];
       };
     };
