@@ -110,10 +110,15 @@ function sudossh() {
 }
 
 ####### network-stuff
+function vpnstart() {
+  sudo systemctl start wg-quick@wg0.service
+}
 function vpnstop() {
   sudo systemctl stop wg-quick@wg0.service
 }
 function vpnrestart() {
+  sudo systemctl restart activate-wwan.service
+  nmcli c up $(nmcli c sh | grep gsm | awk '{ print $2 }')
   sudo systemctl restart wg-quick@wg0.service
 }
 
