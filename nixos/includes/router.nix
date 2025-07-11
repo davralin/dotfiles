@@ -146,6 +146,14 @@
           publicKey = "K02QD6qlpKWrGVg7/zcfVD0e+/t2ixjdxkJqYNJ7siY=";
           allowedIPs = [ "10.0.2.8/32" ];
         }
+        { # Tablet#L
+          publicKey = "Z+XcV1r15nk6vcrTQgt2ZwBrGM/9k+Y0/QnhgVRpdGk=";
+          allowedIPs = [ "10.0.2.9/32" ];
+        }
+        { # Tablet#O
+          publicKey = "zXpjKL3eDJSs5P4bLVxl+k4H9uEHCkyGJ3o7cPVrSVI=";
+          allowedIPs = [ "10.0.2.10/32" ];
+        }
       ];
       };
     };
