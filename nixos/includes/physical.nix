@@ -7,7 +7,8 @@
     usbutils
   ];
 
-  # If we are physical, we assume a need for fwupd
+  # If we are physical, we need more monitoring of physical things
   services.fwupd.enable = true;
+  services.smartd.enable = true;
 
 }
