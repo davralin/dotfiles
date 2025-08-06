@@ -32,7 +32,7 @@
     ];
 
   # ZFS-config:
-  # zpool create -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=12 away-nas mirror /dev/disk/by-id/xxx /dev/disk/by-id/xxx
+  # zpool create -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=12 away-nas /dev/disk/by-id/xxx
   # zfs set com.sun:auto-snapshot=true away-nas
   # zfs create -o mountpoint=legacy away-nas/coldstorage
   # zfs create -o mountpoint=legacy away-nas/local
