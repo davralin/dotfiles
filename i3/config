@@ -277,10 +277,8 @@ bindsym $mod+i move scratchpad
 bindsym $mod+Shift+i sticky toggle
 
 # Music-scratchpad
-exec --no-startup-id clementine
-for_window [class="Clementine"] floating enable
-for_window [class="Clementine"] move scratchpad
-bindsym $mod+F1 [class="Clementine"] scratchpad show, resize set 1000 650
+assign [instance="ncmpcpp"] $ws8
+exec --no-startup-id /usr/bin/xterm -name ncmpcpp -e ncmpcpp
 
 # Terminal-scratchpad
 for_window [instance="dropdown"] floating enable
