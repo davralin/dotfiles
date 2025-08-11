@@ -154,6 +154,10 @@
           publicKey = "zXpjKL3eDJSs5P4bLVxl+k4H9uEHCkyGJ3o7cPVrSVI=";
           allowedIPs = [ "10.0.2.10/32" ];
         }
+        { # Away-NAS
+          publicKey = "Vr5FiTWitjqTKcHTmFjcyRd0TYyii2rVZuJCwxiDcWw=";
+          allowedIPs = [ "10.0.2.11/32" ];
+        }
       ];
       };
     };
