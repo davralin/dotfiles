@@ -121,42 +121,52 @@
         { # GL-Inet
           publicKey = "h/LU8/EF3f1QcPa+thUUfgcWvMPaPyhdJUxIEb8G1kI=";
           allowedIPs = [ "10.0.2.2/32" ];
+          persistentKeepalive = 60;
         }
         { # Laptop
           publicKey = "hW6rycb0yug7eq3NUloXUDE+dYlDcINd2FuBBPCPflc=";
           allowedIPs = [ "10.0.2.3/32" ];
+          persistentKeepalive = 60;
         }
         { # Phone
           publicKey = "f5EOS4Imm9H4CJup/SCvQjocPKM7Givd/UOcAbMjg2Q=";
           allowedIPs = [ "10.0.2.4/32" ];
+          persistentKeepalive = 60;
         }
         { # Tablet
           publicKey = "tx8eAr/FqoXWFmZfBRwP8hWTjY7js42/85sdrsm293I=";
           allowedIPs = [ "10.0.2.5/32" ];
+          persistentKeepalive = 60;
         }
         { # ARM
           publicKey = "VGVrbDI/epkO9xRMeXj/B7FokXfJNGt/ffj4pRPvXnk=";
           allowedIPs = [ "10.0.2.6/32" ];
+          persistentKeepalive = 60;
         }
         { # ADSB
           publicKey = "fTZHXZL0gc3evEeINw+tBTYweL5hf6AeVI+/4pW7zHA=";
           allowedIPs = [ "10.0.2.7/32" ];
+          persistentKeepalive = 60;
         }
         { # RemoteADSB
           publicKey = "K02QD6qlpKWrGVg7/zcfVD0e+/t2ixjdxkJqYNJ7siY=";
           allowedIPs = [ "10.0.2.8/32" ];
+          persistentKeepalive = 60;
         }
         { # Tablet#L
           publicKey = "Z+XcV1r15nk6vcrTQgt2ZwBrGM/9k+Y0/QnhgVRpdGk=";
           allowedIPs = [ "10.0.2.9/32" ];
+          persistentKeepalive = 60;
         }
         { # Tablet#O
           publicKey = "zXpjKL3eDJSs5P4bLVxl+k4H9uEHCkyGJ3o7cPVrSVI=";
           allowedIPs = [ "10.0.2.10/32" ];
+          persistentKeepalive = 60;
         }
         { # Away-NAS
           publicKey = "Vr5FiTWitjqTKcHTmFjcyRd0TYyii2rVZuJCwxiDcWw=";
           allowedIPs = [ "10.0.2.11/32" ];
+          persistentKeepalive = 60;
         }
       ];
       };
