@@ -277,7 +277,10 @@ bindsym $mod+i move scratchpad
 bindsym $mod+Shift+i sticky toggle
 
 # Music-scratchpad
-assign [instance="ncmpcpp"] $ws8
+for_window [instance="ncmpcpp"] floating enable
+for_window [instance="ncmpcpp"] move scratchpad
+bindsym $mod+F1 [instance="ncmpcpp"] scratchpad show, move position center, resize set 80 ppt 80 ppt
+bindsym $mod+Shift+F1 exec --no-startup-id /usr/bin/xterm -name ncmpcpp -e ncmpcpp
 exec --no-startup-id /usr/bin/xterm -name ncmpcpp -e ncmpcpp
 
 # Terminal-scratchpad
