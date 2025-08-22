@@ -259,7 +259,6 @@ exec --no-startup-id XDG_CURRENT_DESKTOP=i3 variety
 exec --no-startup-id nextcloud
 exec --no-startup-id gammastep -c ~/.config/gammastep/gammastep.conf
 exec --no-startup-id lxpolkit
-exec --no-startup-id guake
 exec --no-startup-id unclutter-xfixes -idle 2
 exec --no-startup-id thunar --daemon
 exec --no-startup-id xautolock -detectsleep -time 120 -locker "~/.config/i3/scripts/i3lockblur.sh" -notify 30 -notifier "notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
@@ -284,13 +283,11 @@ bindsym $mod+Shift+F1 exec --no-startup-id /usr/bin/xterm -name ncmpcpp -e ncmpc
 exec --no-startup-id /usr/bin/xterm -name ncmpcpp -e ncmpcpp
 
 # Terminal-scratchpad
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 1000 800
-for_window [instance="dropdown"] move position center
-for_window [instance="dropdown"] move scratchpad
-exec --no-startup-id $terminal2 -name dropdown
-bindsym $mod+F2 [instance="dropdown"] scratchpad show; move position center
-bindsym $mod+Shift+F2 exec --no-startup-id $terminal --name dropdown --title dropdown
+for_window [class="Alacritty"][instance="dropdown"] floating enable
+for_window [class="Alacritty"][instance="dropdown"] move scratchpad
+for_window [class="Alacritty"][instance="dropdown"] resize set 80 ppt 80 ppt
+bindsym F12 [class="Alacritty"][instance="dropdown"] scratchpad show; move position center
+exec --no-startup-id $terminal --class Alacritty,dropdown
 
 # Calculate-scratchpad
 for_window [class="SpeedCrunch"] floating enable
