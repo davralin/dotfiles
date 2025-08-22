@@ -276,16 +276,19 @@ bindsym $mod+i move scratchpad
 bindsym $mod+Shift+i sticky toggle
 
 # Music-scratchpad
-for_window [instance="ncmpcpp"] floating enable
-for_window [instance="ncmpcpp"] move scratchpad
-bindsym $mod+F1 [instance="ncmpcpp"] scratchpad show, move position center, resize set 80 ppt 80 ppt
-bindsym $mod+Shift+F1 exec --no-startup-id /usr/bin/xterm -name ncmpcpp -e ncmpcpp
-exec --no-startup-id /usr/bin/xterm -name ncmpcpp -e ncmpcpp
+for_window [class="Alacritty"][instance="ncmpcpp"] floating enable
+for_window [class="Alacritty"][instance="ncmpcpp"] move scratchpad
+for_window [class="Alacritty"][instance="ncmpcpp"] resize set 80 ppt 80 ppt
+for_window [class="Alacritty"][instance="ncmpcpp"] border pixel 0
+bindsym $mod+F1 [class="Alacritty"][instance="ncmpcpp"] scratchpad show, move position center
+bindsym $mod+Shift+F1 exec --no-startup-id $terminal --class Alacritty,ncmpcpp -e ncmpcpp
+exec --no-startup-id $terminal --class Alacritty,ncmpcpp -e ncmpcpp
 
 # Terminal-scratchpad
 for_window [class="Alacritty"][instance="dropdown"] floating enable
 for_window [class="Alacritty"][instance="dropdown"] move scratchpad
 for_window [class="Alacritty"][instance="dropdown"] resize set 80 ppt 80 ppt
+for_window [class="Alacritty"][instance="dropdown"] border pixel 0
 bindsym F12 [class="Alacritty"][instance="dropdown"] scratchpad show; move position center
 exec --no-startup-id $terminal --class Alacritty,dropdown
 
