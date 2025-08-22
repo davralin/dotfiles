@@ -265,7 +265,6 @@ exec --no-startup-id xautolock -detectsleep -time 120 -locker "~/.config/i3/scri
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id autorandr --change
 exec --no-startup-id udiskie --smart-tray --file-manager thunar
-#exec --no-startup-id ~/.config/i3/scripts/applaunch_element.sh
 exec --no-startup-id ~/.config/i3/scripts/applaunch_buffer.sh
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets,pkcs11
 
