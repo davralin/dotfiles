@@ -118,7 +118,9 @@ function vpnstop() {
 }
 function vpnrestart() {
   sudo systemctl restart activate-wwan.service
+  echo "Activating connection"
   nmcli c up $(nmcli c sh | grep gsm | awk '{ print $2 }')
+  echo "Activating VPN"
   sudo systemctl restart wg-quick@wg0.service
 }
 
