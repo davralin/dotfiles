@@ -26,7 +26,7 @@ foreground = "0xf8f8f2"
 decorations_theme_variant = "None"
 decorations = "Full"
 dynamic_title = true
-opacity = 0.4
+opacity = 0.99
 blur = true
 
 [scrolling]

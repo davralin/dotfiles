@@ -252,7 +252,7 @@ bindsym $mod+p exec autorandr --change
 bindsym $mod+Shift+p exec autorandr --load laptop
 
 ## Autoruns
-exec --no-startup-id compton --config ~/.config/compton/compton.conf
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id XDG_CURRENT_DESKTOP=i3 variety
 exec --no-startup-id nextcloud
