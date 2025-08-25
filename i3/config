@@ -299,8 +299,6 @@ exec --no-startup-id flatpak run org.speedcrunch.SpeedCrunch
 
 # Assignments
 assign [class="Steam"] $ws8
-assign [class="Element"] $ws9
-for_window [class="Element"] layout tabbed
 assign [class="discord"] $ws9
 for_window [class="discord"] layout tabbed
 assign [class="signal"] $ws9
