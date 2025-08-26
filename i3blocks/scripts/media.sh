@@ -1,24 +1,22 @@
 #!/bin/bash
 if [[ "$BLOCK_BUTTON" -eq 1 ]]; then
-  playerctl previous
+  mpc prev >/dev/null
 elif [[ "$BLOCK_BUTTON" -eq 2 ]]; then
-  playerctl play-pause
+  mpc toggle >/dev/null
 elif [[ "$BLOCK_BUTTON" -eq 3 ]]; then
-  playerctl next
+  mpc next >/dev/null
 fi
 
+# Get status and track info
+STATUS=$(mpc status | awk 'NR==2 {print $1}')
+TRACK=$(mpc -f '%artist% - %title%' | head -n1)
 
-STATUS=$(playerctl status 2>&1)
-if [[ $STATUS == "No players found" ]]; then
+if [[ -z "$STATUS" ]]; then
   echo ""
-elif [[ $STATUS == "Stopped" ]]; then
-  echo ""
-elif [[ $STATUS == "Paused" ]]; then
-  ARTIST=$(playerctl metadata artist)
-  TITLE=$(playerctl metadata title)
-  echo " $ARTIST - $TITLE"
+elif [[ "$STATUS" == "[playing]" ]]; then
+  echo "$TRACK"
+elif [[ "$STATUS" == "[paused]" ]]; then
+  echo " $TRACK"
 else
-  ARTIST=$(playerctl metadata artist)
-  TITLE=$(playerctl metadata title)
-  echo "$ARTIST - $TITLE"
+  echo ""
 fi
