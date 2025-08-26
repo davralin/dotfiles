@@ -38,6 +38,9 @@
   # zfs create -o mountpoint=legacy away-nas/local
   # zfs create -o mountpoint=legacy away-nas/remote
 
+  # open firewall for node-exporter
+  services.prometheus.exporters.node.openFirewall = true;
+
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
