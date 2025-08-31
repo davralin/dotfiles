@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Inspired by https://github.com/BreadOnPenguins/scripts/blob/master/dmenu_musicpicker
+
+file="$(mpc listall | rofi -dmenu -i -lines 1 )" || exit 0
+
+meta="$(MPC_FORMAT="%artist% – %title%" mpc search filename "$file")"
+
+echo $file
+echo $meta
+notify-send "Playing $meta" && mpc insert "$file" && mpc play && mpc next >/dev/null

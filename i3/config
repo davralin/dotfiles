@@ -83,7 +83,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # More universal Paste
 bindsym --release Control+Shift+v exec --no-startup-id xdotool key --clearmodifiers Shift+Insert
@@ -225,6 +225,7 @@ bindsym XF86MonBrightnessUp exec sudo brightnessctl -q set +5%
 bindsym XF86MonBrightnessDown exec sudo brightnessctl -q set 5%-
 
 # Media player controls
+bindsym $mod+a exec ~/.config/i3/scripts/mediactl
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPause exec mpc toggle
 bindsym XF86AudioPrev exec mpc prev
