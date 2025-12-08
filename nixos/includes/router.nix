@@ -178,7 +178,6 @@
       reflector = true;
       allowInterfaces = [
         "lan"
-        "tailscale0"
         "wg0"
       ];
     };
