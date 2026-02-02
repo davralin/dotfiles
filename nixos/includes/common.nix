@@ -5,6 +5,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     btop
+    borgbackup
     cloud-utils # growpart
     dig
     fastfetch
