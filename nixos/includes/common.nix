@@ -27,7 +27,7 @@
     wget
   ];
   # Stop waiting for services to properly stop.
-  systemd.extraConfig  = ''
-    DefaultTimeoutStopSec=30s
-  '';
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "30s";
+  };
 }
