@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     btop
     borgbackup
+    borgmatic
     cloud-utils # growpart
     dig
     fastfetch
