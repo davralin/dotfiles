@@ -21,7 +21,6 @@ in
       "/var/lib/bluetooth"
       "/var/lib/dnsmasq"
       "/var/lib/nixos"
-      "/var/lib/tailscale"
     ];
     files = [
       "/etc/machine-id"
