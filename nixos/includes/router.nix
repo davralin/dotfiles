@@ -64,6 +64,23 @@
         ];
       };
     };
+
+    firewall.extraCommands = ''
+      # ---- Force LAN DNS through router ----
+      iptables -t nat -A PREROUTING -i lan -p udp --dport 53 -j REDIRECT --to-ports 53
+      iptables -t nat -A PREROUTING -i lan -p tcp --dport 53 -j REDIRECT --to-ports 53
+
+      # ---- Block DNS-over-TLS ----
+      iptables -A FORWARD -i lan -o enp2s0 -p tcp --dport 853 -j REJECT
+      iptables -A FORWARD -i lan -o enp2s0 -p tcp --dport 853 -j REJECT
+
+      # ---- Block DNS-over-HTTPS ----
+      iptables -A FORWARD -i lan -o enp2s0 -d 8.8.4.4 -j REJECT
+      iptables -A FORWARD -i lan -o enp2s0 -d 8.8.8.8 -j REJECT
+      iptables -A FORWARD -i lan -o enp2s0 -d 1.1.1.1 -j REJECT
+      iptables -A FORWARD -i lan -o enp2s0 -d 9.9.9.9 -j REJECT
+    '';
+    };
     bridges.lan = {
         interfaces = [ "enp1s0" ];
     };
