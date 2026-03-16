@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     cryptsetup
     dmidecode
+    smartmontools
     usbutils
   ];
 
