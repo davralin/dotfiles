@@ -14,6 +14,7 @@
       ../includes/docker-garage.nix
       ../includes/garbage-collect.nix
       ../includes/impermanence-root.nix
+      ../includes/libvirtd.nix
       ../includes/locale.nix
       ../includes/mikr.nix
       ../includes/node-exporter.nix
