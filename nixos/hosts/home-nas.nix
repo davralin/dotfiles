@@ -33,6 +33,11 @@
   # zfs create -o mountpoint=legacy home-nas/local
   # boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
 
+  # Configure a bridge for libvirtd
+  networking.bridges.br0.interfaces = [ "enp2s0" ];
+  networking.interfaces.br0.useDHCP = true;
+  networking.useDHCP = false;
+
   # Allow on all one interfaces
   services.prometheus.exporters.node.openFirewall = true;
 
