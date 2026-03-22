@@ -80,7 +80,6 @@
       iptables -A FORWARD -i lan -o enp2s0 -d 1.1.1.1 -j REJECT
       iptables -A FORWARD -i lan -o enp2s0 -d 9.9.9.9 -j REJECT
     '';
-    };
     bridges.lan = {
         interfaces = [ "enp1s0" ];
     };
