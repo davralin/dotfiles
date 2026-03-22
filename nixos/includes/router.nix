@@ -102,6 +102,42 @@
           proto = "tcp";
           destination = "10.0.1.31:25565";
         }
+        #{
+        #  # HOMM3
+        #  sourcePort = 8766;
+        #  proto = "tcp";
+        #  destination = "10.0.1.61:8766";
+        #}
+        #{
+        #  # HOMM3
+        #  sourcePort = 8766;
+        #  proto = "udp";
+        #  destination = "10.0.1.61:8766";
+        #}
+        #{
+        #  # HOMM3
+        #  sourcePort = 27015;
+        #  proto = "tcp";
+        #  destination = "10.0.1.61:27015";
+        #}
+        #{
+        #  # HOMM3
+        #  sourcePort = 27015;
+        #  proto = "udp";
+        #  destination = "10.0.1.61:27015";
+        #}
+        #{
+        #  # HOMM3
+        #  sourcePort = 27016;
+        #  proto = "tcp";
+        #  destination = "10.0.1.61:27016";
+        #}
+        #{
+        #  # HOMM3
+        #  sourcePort = 27016;
+        #  proto = "udp";
+        #  destination = "10.0.1.61:27016";
+        #}
         {
           # plex
           sourcePort = 32400;
