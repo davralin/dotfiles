@@ -31,7 +31,7 @@
   # zpool create -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=12 home-nas mirror /dev/disk/by-id/xxx /dev/disk/by-id/xxx
   # zfs set com.sun:auto-snapshot=true home-nas
   # zfs create -o mountpoint=legacy home-nas/local
-  # boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
+  boot.kernelParams = [ "zfs.zfs_arc_max=9663676416" ];
 
   # Configure a bridge for libvirtd
   networking.bridges.br0.interfaces = [ "enp2s0" ];
