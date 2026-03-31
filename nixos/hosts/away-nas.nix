@@ -42,6 +42,7 @@
 
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
+  boot.kernelParams = [ "zfs.zfs_arc_max=4831838208" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
