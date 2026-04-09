@@ -43,6 +43,7 @@
         allowedTCPPorts = [
           22 # SSH
           53 # DNSmasq
+          5001 # Docker Registry pull-through cache
           8404 # node-exporter for HAproxy
           9100 # node-exporter
           9153 # node-exporter for DNSmasq

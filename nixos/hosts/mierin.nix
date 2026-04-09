@@ -17,6 +17,7 @@
       ../includes/mikr.nix
       ../includes/node-exporter.nix
       ../includes/physical.nix
+      ../includes/docker-registry-cache.nix
       ../includes/router.nix
       ../includes/ssh.nix
       ../includes/sudo.nix
