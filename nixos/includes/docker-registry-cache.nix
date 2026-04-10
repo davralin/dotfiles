@@ -13,4 +13,9 @@
       };
     };
   };
+
+  systemd.services.docker-registry.serviceConfig = {
+    Restart = "on-failure";
+    RestartSec = "5s";
+  };
 }
