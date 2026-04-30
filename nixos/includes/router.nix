@@ -68,6 +68,8 @@
 
     firewall.extraCommands = ''
       # ---- Force LAN DNS through router ----
+      iptables -t nat -I PREROUTING -i lan -s 10.0.1.64/29 -p udp --dport 53 -j ACCEPT
+      iptables -t nat -I PREROUTING -i lan -s 10.0.1.64/29 -p tcp --dport 53 -j ACCEPT
       iptables -t nat -A PREROUTING -i lan -p udp --dport 53 -j REDIRECT --to-ports 53
       iptables -t nat -A PREROUTING -i lan -p tcp --dport 53 -j REDIRECT --to-ports 53
 
@@ -76,6 +78,8 @@
       iptables -A FORWARD -i lan -o enp2s0 -p tcp --dport 853 -j REJECT
 
       # ---- Block DNS-over-HTTPS ----
+      iptables -I FORWARD -i lan -o enp2s0 -s 10.0.1.64/29 -d 1.1.1.1 -j ACCEPT
+      iptables -I FORWARD -i lan -o enp2s0 -s 10.0.1.64/29 -d 9.9.9.9 -j ACCEPT
       iptables -A FORWARD -i lan -o enp2s0 -d 8.8.4.4 -j REJECT
       iptables -A FORWARD -i lan -o enp2s0 -d 8.8.8.8 -j REJECT
       iptables -A FORWARD -i lan -o enp2s0 -d 1.1.1.1 -j REJECT
