@@ -223,7 +223,7 @@
         }
         { # hiddenBox
           publicKey = "Imupq72alW84SfzxytChGYPty64loe3srAb1y+M3jjA=";
-          allowedIPs = [ "10.0.2.12/32" "10.10.0.0/24" "10.255.0.0/24" ];
+          allowedIPs = [ "10.0.2.12/32" "10.10.0.0/24" "10.255.0.0/16" ];
           persistentKeepalive = 60;
         }
         ];
