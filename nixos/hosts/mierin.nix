@@ -11,7 +11,6 @@
       ../includes/auto-update.nix
       ../includes/common.nix
       ../includes/garbage-collect.nix
-#      ../includes/haproxy.nix
       ../includes/impermanence-root.nix
       ../includes/locale.nix
       ../includes/mikr.nix
