@@ -10,6 +10,7 @@
     cloud-utils # growpart
     dig
     fastfetch
+    ffmpeg
     file
     git
     git-crypt
