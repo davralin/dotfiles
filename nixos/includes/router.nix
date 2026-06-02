@@ -194,8 +194,8 @@
           allowedIPs = [ "10.0.2.5/32" ];
           persistentKeepalive = 60;
         }
-        { # ARM
-          publicKey = "VGVrbDI/epkO9xRMeXj/B7FokXfJNGt/ffj4pRPvXnk=";
+        { # OCI-ARM
+          publicKey = "EeS/nzG4GDVeJnKoyKjcj2V9P44EUiu+aGeRcx4x6zc=";
           allowedIPs = [ "10.0.2.6/32" ];
           persistentKeepalive = 60;
         }
