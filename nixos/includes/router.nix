@@ -244,6 +244,22 @@
     };
     dnsmasq = {
       enable = true;
+      settings = {
+        enable-tftp = true;
+        tftp-root = "/opt/netboot";
+        dhcp-match = [
+          "set:bios,60,PXEClient:Arch:00000"
+          "set:efi64,60,PXEClient:Arch:00007"
+          "set:efi64-2,60,PXEClient:Arch:00009"
+          "set:efi64-3,60,PXEClient:Arch:0000B"
+        ];
+        dhcp-boot = [
+          "tag:bios,netboot.xyz.kpxe"
+          "tag:efi64,netboot.xyz.efi"
+          "tag:efi64-2,netboot.xyz.efi"
+          "tag:efi64-3,netboot.xyz-arm64.efi"
+        ];
+      };
     };
     prometheus.exporters.dnsmasq = {
       enable = true;
@@ -256,6 +272,31 @@
     };
     prometheus.exporters.wireguard = {
       enable = true;
+    };
+  };
+
+  systemd.services.netboot-xyz-update = {
+    description = "Download/update netboot.xyz boot files";
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = pkgs.writeShellScript "netboot-xyz-update" ''
+        mkdir -p /opt/netboot
+        for f in netboot.xyz.kpxe netboot.xyz-undionly.kpxe netboot.xyz.efi netboot.xyz-snp.efi netboot.xyz-arm64.efi; do
+          ${pkgs.curl}/bin/curl -fsSL -o /opt/netboot/$f \
+            https://github.com/netbootxyz/netboot.xyz/releases/latest/download/$f
+        done
+      '';
+    };
+  };
+
+  systemd.timers.netboot-xyz-update = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "weekly";
+      OnBootSec = "5min";
+      Persistent = true;
     };
   };
 }
