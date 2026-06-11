@@ -34,9 +34,24 @@
   boot.kernelParams = [ "zfs.zfs_arc_max=9663676416" ];
 
   # Configure a bridge for libvirtd
-  networking.bridges.br0.interfaces = [ "enp2s0" ];
-  networking.interfaces.br0.useDHCP = true;
   networking.useDHCP = false;
+  systemd.network = {
+    enable = true;
+    netdevs."br0" = {
+      netdevConfig = {
+        Name = "br0";
+        Kind = "bridge";
+      };
+    };
+    networks."10-enp2s0" = {
+      matchConfig.Name = "enp2s0";
+      networkConfig.Bridge = "br0";
+    };
+    networks."20-br0" = {
+      matchConfig.Name = "br0";
+      networkConfig.DHCP = "ipv4";
+    };
+  };
 
   # Allow on all one interfaces
   services.prometheus.exporters.node.openFirewall = true;
