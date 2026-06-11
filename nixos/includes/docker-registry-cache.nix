@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+let
+  certName = builtins.head (builtins.attrNames config.security.acme.certs);
+  certDir = config.security.acme.certs.${certName}.directory;
+in
 
 {
   services.dockerRegistry = {
@@ -8,6 +13,10 @@
     storagePath = "/opt/local/dockercache/dockerhub";
     enableDelete = true;
     extraConfig = {
+      http.tls = {
+        certificate = "${certDir}/cert.pem";
+        key = "${certDir}/key.pem";
+      };
       proxy = {
         remoteurl = "https://registry-1.docker.io";
       };
