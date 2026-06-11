@@ -41,6 +41,7 @@
       netdevConfig = {
         Name = "br0";
         Kind = "bridge";
+        MACAddress = "c8:ff:bf:00:d2:dc";
       };
     };
     networks."10-enp2s0" = {
