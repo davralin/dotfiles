@@ -35,6 +35,7 @@
 
   # Configure a bridge for libvirtd
   networking.useDHCP = false;
+  services.resolved.enable = false;
   systemd.network = {
     enable = true;
     netdevs."br0" = {
@@ -51,6 +52,7 @@
     networks."20-br0" = {
       matchConfig.Name = "br0";
       networkConfig.DHCP = "ipv4";
+      dhcpV4Config.UseDNS = true;
     };
   };
 
