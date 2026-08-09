@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import html
+import json
 import re
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -30,14 +32,18 @@ def extract_by_class(page, class_pattern, tag="cite"):
     return clean_fragment(match.group(2))
 
 
-def fetch_current_quote():
-    request = urllib.request.Request(
-        URL,
-        headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"},
+def page_diagnostics(page):
+    title_match = re.search(r"<title>(.*?)</title>", page, re.IGNORECASE | re.DOTALL)
+    title = clean_fragment(title_match.group(1)) if title_match else "missing"
+    return (
+        f"bytes={len(page)}, title={title!r}, "
+        f"has_currQuoteID={bool(re.search(r'currQuoteID\"\\s*:', page))}, "
+        f"has_quotescollectionAjax={'quotescollectionAjax' in page}, "
+        f"has_quote_wrapper={'quotescollection-quote-wrapper' in page}"
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        page = response.read().decode("utf-8", errors="replace")
 
+
+def parse_homepage_quote(page):
     id_match = re.search(r'currQuoteID"\s*:\s*(\d+)', page)
     if not id_match:
         raise ValueError("Could not find quote ID")
@@ -60,6 +66,82 @@ def fetch_current_quote():
     source = extract_by_class(page, r"\btitle\b[^\"']*\bsource\b")
 
     return quote_id, quote, author, source
+
+
+def extract_ajax_config(page):
+    config_match = re.search(
+        r"var\s+quotescollectionAjax\s*=\s*(\{.*?\});",
+        page,
+        re.IGNORECASE | re.DOTALL,
+    )
+    if not config_match:
+        raise ValueError("Could not find quotescollectionAjax config")
+
+    config = json.loads(config_match.group(1))
+    nonce = config.get("nonce")
+    ajax_url = config.get("ajaxUrl")
+    if not nonce:
+        raise ValueError("Could not find quotescollectionAjax nonce")
+    if not ajax_url:
+        raise ValueError("Could not find quotescollectionAjax URL")
+    return ajax_url, nonce
+
+
+def fetch_ajax_quote(page):
+    ajax_url, nonce = extract_ajax_config(page)
+    current_match = re.search(r'currQuoteID"\s*:\s*(\d+)', page)
+    current = current_match.group(1) if current_match else "0"
+    payload = urllib.parse.urlencode(
+        {
+            "action": "quotescollection",
+            "_ajax_nonce": nonce,
+            "current": current,
+            "char_limit": "500",
+            "tags": "",
+            "orderby": "random",
+        }
+    ).encode()
+    request = urllib.request.Request(
+        ajax_url,
+        data=payload,
+        headers={
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)",
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        body = response.read().decode("utf-8", errors="replace")
+
+    if body == "-1" or not body:
+        raise ValueError(f"Unexpected AJAX response: {body!r}")
+
+    quote_data = json.loads(body)
+    return (
+        int(quote_data["quote_id"]),
+        clean_fragment(quote_data.get("quote", "")),
+        clean_fragment(quote_data.get("author", "")),
+        clean_fragment(quote_data.get("source", "")),
+    )
+
+
+def fetch_current_quote():
+    request = urllib.request.Request(
+        URL,
+        headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        page = response.read().decode("utf-8", errors="replace")
+
+    try:
+        return parse_homepage_quote(page)
+    except Exception as homepage_error:
+        try:
+            return fetch_ajax_quote(page)
+        except Exception as ajax_error:
+            raise ValueError(
+                f"{homepage_error}; AJAX fallback failed: {ajax_error}; "
+                f"page diagnostics: {page_diagnostics(page)}"
+            ) from ajax_error
 
 
 def load_quotes():
